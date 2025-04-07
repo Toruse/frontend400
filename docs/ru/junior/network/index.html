@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Основи мережі та протоколи
+  #
+
+
+  Що таке HTTP і HTTPS, яка між ними різниця?
+  #
+
+
+  Які основні методи HTTP-запитів (GET, POST, PUT, DELETE) і їхні відмінності?
+  #
+
+
+  Що таке статус-коди HTTP, наведіть приклади найбільш поширених.
+  #
+
+
+  Що таке REST API і які його основні принципи?
+  #
+
+
+  Які засоби безпеки використовують під час роботи з вебзапитами?
+  #
+
+
+  Що таке JSON і XML і чим вони відрізняються у використанні?
+  #
+
+
+  Як працює механізм CORS (Cross-Origin Resource Sharing)?
+  #
+
+
+  Що таке WebSocket і в чому його особливості порівняно з традиційними HTTP-запитами?
+  #
+
+
+  Як функціонує кешування вебресурсів?
+  #
+
+
+  Що таке SSL/TLS і як це використовують для реалізації безпеки?
+  #
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://toruse.github.io/frontend400/ru/junior/network/">
+  <meta property="og:site_name" content="Собеседование: Вопросы по Frontend">
+  <meta property="og:title" content="Основи мережі та протоколи">
+  <meta property="og:description" content="Основи мережі та протоколи#Що таке HTTP і HTTPS, яка між ними різниця?#Які основні методи HTTP-запитів (GET, POST, PUT, DELETE) і їхні відмінності?#Що таке статус-коди HTTP, наведіть приклади найбільш поширених.#Що таке REST API і які його основні принципи?#Які засоби безпеки використовують під час роботи з вебзапитами?#Що таке JSON і XML і чим вони відрізняються у використанні?#Як працює механізм CORS (Cross-Origin Resource Sharing)?#Що таке WebSocket і в чому його особливості порівняно з традиційними HTTP-запитами?#Як функціонує кешування вебресурсів?#Що таке SSL/TLS і як це використовують для реалізації безпеки?#">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="junior">
+<title>Основи мережі та протоколи | Собеседование: Вопросы по Frontend</title>
+<link rel="icon" href="/frontend400/favicon.png" >
+<link rel="manifest" href="/frontend400/manifest.json">
+<link rel="canonical" href="https://toruse.github.io/frontend400/ru/junior/network/">
+  <link rel="alternate" hreflang="ua" href="https://toruse.github.io/frontend400/junior/network/" title="Основи мережі та протоколи">
+  <link rel="alternate" hreflang="en" href="https://toruse.github.io/frontend400/en/junior/network/" title="Основи мережі та протоколи">
+<link rel="stylesheet" href="/frontend400/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css" integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5&#43;NfY=" crossorigin="anonymous"><!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/frontend400/ru/"><span>Собеседование: Вопросы по Frontend</span>
+  </a>
+</h2>
+
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+  
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/frontend400/svg/translate.svg" class="book-icon" alt="Languages" />
+        Русский
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/frontend400/junior/network/">
+          Українська
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frontend400/en/junior/network/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-74271b9e3958efd1064bff9b4a27bd53" class="toggle" checked />
+    <label for="section-74271b9e3958efd1064bff9b4a27bd53" class="flex justify-between">
+      <a role="button" class="">Junior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/htmlcss/" class="">Основи HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/web/" class="">Web Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/javascript/" class="">Основи JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/browserapi/" class="">API браузера</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/network/" class="active">Основи мережі та протоколи</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/backend/" class="">Робота з бекендом</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/algorithms/" class="">Алгоритми та структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/git/" class="">Git і системи контролю версій</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/typescript/" class="">TypeScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-18b4f0f8cb7ef7c80d2829fb30d37b01" class="toggle"  />
+    <label for="section-18b4f0f8cb7ef7c80d2829fb30d37b01" class="flex justify-between">
+      <a role="button" class="">Middle</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/testing/" class="">Тести</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5520c7b13aef4cf221ae2cddad677702" class="toggle"  />
+    <label for="section-5520c7b13aef4cf221ae2cddad677702" class="flex justify-between">
+      <a role="button" class="">Senior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/general/" class="">Загальні запитання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/algorithms/" class="">Алгоритми і структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/architecture/" class="">Архітектура</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/security/" class="">Безпека</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/frontend400/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Основи мережі та протоколи</h3>
+
+  <label for="toc-control">
+    
+    <img src="/frontend400/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#що-таке-http-і-https-яка-між-ними-різниця">Що таке HTTP і HTTPS, яка між ними різниця?</a></li>
+    <li><a href="#які-основні-методи-http-запитів-get-post-put-delete-і-їхні-відмінності">Які основні методи HTTP-запитів (GET, POST, PUT, DELETE) і їхні відмінності?</a></li>
+    <li><a href="#що-таке-статус-коди-http-наведіть-приклади-найбільш-поширених">Що таке статус-коди HTTP, наведіть приклади найбільш поширених.</a></li>
+    <li><a href="#що-таке-rest-api-і-які-його-основні-принципи">Що таке REST API і які його основні принципи?</a></li>
+    <li><a href="#які-засоби-безпеки-використовують-під-час-роботи-з-вебзапитами">Які засоби безпеки використовують під час роботи з вебзапитами?</a></li>
+    <li><a href="#що-таке-json-і-xml-і-чим-вони-відрізняються-у-використанні">Що таке JSON і XML і чим вони відрізняються у використанні?</a></li>
+    <li><a href="#як-працює-механізм-cors-cross-origin-resource-sharing">Як працює механізм CORS (Cross-Origin Resource Sharing)?</a></li>
+    <li><a href="#що-таке-websocket-і-в-чому-його-особливості-порівняно-з-традиційними-http-запитами">Що таке WebSocket і в чому його особливості порівняно з традиційними HTTP-запитами?</a></li>
+    <li><a href="#як-функціонує-кешування-вебресурсів">Як функціонує кешування вебресурсів?</a></li>
+    <li><a href="#що-таке-ssltls-і-як-це-використовують-для-реалізації-безпеки">Що таке SSL/TLS і як це використовують для реалізації безпеки?</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="основи-мережі-та-протоколи">
+  Основи мережі та протоколи
+  <a class="anchor" href="#%d0%be%d1%81%d0%bd%d0%be%d0%b2%d0%b8-%d0%bc%d0%b5%d1%80%d0%b5%d0%b6%d1%96-%d1%82%d0%b0-%d0%bf%d1%80%d0%be%d1%82%d0%be%d0%ba%d0%be%d0%bb%d0%b8">#</a>
+</h1>
+<h2 id="що-таке-http-і-https-яка-між-ними-різниця">
+  Що таке HTTP і HTTPS, яка між ними різниця?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-http-%d1%96-https-%d1%8f%d0%ba%d0%b0-%d0%bc%d1%96%d0%b6-%d0%bd%d0%b8%d0%bc%d0%b8-%d1%80%d1%96%d0%b7%d0%bd%d0%b8%d1%86%d1%8f">#</a>
+</h2>
+<h2 id="які-основні-методи-http-запитів-get-post-put-delete-і-їхні-відмінності">
+  Які основні методи HTTP-запитів (GET, POST, PUT, DELETE) і їхні відмінності?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d0%be%d1%81%d0%bd%d0%be%d0%b2%d0%bd%d1%96-%d0%bc%d0%b5%d1%82%d0%be%d0%b4%d0%b8-http-%d0%b7%d0%b0%d0%bf%d0%b8%d1%82%d1%96%d0%b2-get-post-put-delete-%d1%96-%d1%97%d1%85%d0%bd%d1%96-%d0%b2%d1%96%d0%b4%d0%bc%d1%96%d0%bd%d0%bd%d0%be%d1%81%d1%82%d1%96">#</a>
+</h2>
+<h2 id="що-таке-статус-коди-http-наведіть-приклади-найбільш-поширених">
+  Що таке статус-коди HTTP, наведіть приклади найбільш поширених.
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-%d1%81%d1%82%d0%b0%d1%82%d1%83%d1%81-%d0%ba%d0%be%d0%b4%d0%b8-http-%d0%bd%d0%b0%d0%b2%d0%b5%d0%b4%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4%d0%b8-%d0%bd%d0%b0%d0%b9%d0%b1%d1%96%d0%bb%d1%8c%d1%88-%d0%bf%d0%be%d1%88%d0%b8%d1%80%d0%b5%d0%bd%d0%b8%d1%85">#</a>
+</h2>
+<h2 id="що-таке-rest-api-і-які-його-основні-принципи">
+  Що таке REST API і які його основні принципи?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-rest-api-%d1%96-%d1%8f%d0%ba%d1%96-%d0%b9%d0%be%d0%b3%d0%be-%d0%be%d1%81%d0%bd%d0%be%d0%b2%d0%bd%d1%96-%d0%bf%d1%80%d0%b8%d0%bd%d1%86%d0%b8%d0%bf%d0%b8">#</a>
+</h2>
+<h2 id="які-засоби-безпеки-використовують-під-час-роботи-з-вебзапитами">
+  Які засоби безпеки використовують під час роботи з вебзапитами?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d0%b7%d0%b0%d1%81%d0%be%d0%b1%d0%b8-%d0%b1%d0%b5%d0%b7%d0%bf%d0%b5%d0%ba%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%8e%d1%82%d1%8c-%d0%bf%d1%96%d0%b4-%d1%87%d0%b0%d1%81-%d1%80%d0%be%d0%b1%d0%be%d1%82%d0%b8-%d0%b7-%d0%b2%d0%b5%d0%b1%d0%b7%d0%b0%d0%bf%d0%b8%d1%82%d0%b0%d0%bc%d0%b8">#</a>
+</h2>
+<h2 id="що-таке-json-і-xml-і-чим-вони-відрізняються-у-використанні">
+  Що таке JSON і XML і чим вони відрізняються у використанні?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-json-%d1%96-xml-%d1%96-%d1%87%d0%b8%d0%bc-%d0%b2%d0%be%d0%bd%d0%b8-%d0%b2%d1%96%d0%b4%d1%80%d1%96%d0%b7%d0%bd%d1%8f%d1%8e%d1%82%d1%8c%d1%81%d1%8f-%d1%83-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%96">#</a>
+</h2>
+<h2 id="як-працює-механізм-cors-cross-origin-resource-sharing">
+  Як працює механізм CORS (Cross-Origin Resource Sharing)?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%bf%d1%80%d0%b0%d1%86%d1%8e%d1%94-%d0%bc%d0%b5%d1%85%d0%b0%d0%bd%d1%96%d0%b7%d0%bc-cors-cross-origin-resource-sharing">#</a>
+</h2>
+<h2 id="що-таке-websocket-і-в-чому-його-особливості-порівняно-з-традиційними-http-запитами">
+  Що таке WebSocket і в чому його особливості порівняно з традиційними HTTP-запитами?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-websocket-%d1%96-%d0%b2-%d1%87%d0%be%d0%bc%d1%83-%d0%b9%d0%be%d0%b3%d0%be-%d0%be%d1%81%d0%be%d0%b1%d0%bb%d0%b8%d0%b2%d0%be%d1%81%d1%82%d1%96-%d0%bf%d0%be%d1%80%d1%96%d0%b2%d0%bd%d1%8f%d0%bd%d0%be-%d0%b7-%d1%82%d1%80%d0%b0%d0%b4%d0%b8%d1%86%d1%96%d0%b9%d0%bd%d0%b8%d0%bc%d0%b8-http-%d0%b7%d0%b0%d0%bf%d0%b8%d1%82%d0%b0%d0%bc%d0%b8">#</a>
+</h2>
+<h2 id="як-функціонує-кешування-вебресурсів">
+  Як функціонує кешування вебресурсів?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%96%d0%be%d0%bd%d1%83%d1%94-%d0%ba%d0%b5%d1%88%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%b2%d0%b5%d0%b1%d1%80%d0%b5%d1%81%d1%83%d1%80%d1%81%d1%96%d0%b2">#</a>
+</h2>
+<h2 id="що-таке-ssltls-і-як-це-використовують-для-реалізації-безпеки">
+  Що таке SSL/TLS і як це використовують для реалізації безпеки?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-ssltls-%d1%96-%d1%8f%d0%ba-%d1%86%d0%b5-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%8e%d1%82%d1%8c-%d0%b4%d0%bb%d1%8f-%d1%80%d0%b5%d0%b0%d0%bb%d1%96%d0%b7%d0%b0%d1%86%d1%96%d1%97-%d0%b1%d0%b5%d0%b7%d0%bf%d0%b5%d0%ba%d0%b8">#</a>
+</h2>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#що-таке-http-і-https-яка-між-ними-різниця">Що таке HTTP і HTTPS, яка між ними різниця?</a></li>
+    <li><a href="#які-основні-методи-http-запитів-get-post-put-delete-і-їхні-відмінності">Які основні методи HTTP-запитів (GET, POST, PUT, DELETE) і їхні відмінності?</a></li>
+    <li><a href="#що-таке-статус-коди-http-наведіть-приклади-найбільш-поширених">Що таке статус-коди HTTP, наведіть приклади найбільш поширених.</a></li>
+    <li><a href="#що-таке-rest-api-і-які-його-основні-принципи">Що таке REST API і які його основні принципи?</a></li>
+    <li><a href="#які-засоби-безпеки-використовують-під-час-роботи-з-вебзапитами">Які засоби безпеки використовують під час роботи з вебзапитами?</a></li>
+    <li><a href="#що-таке-json-і-xml-і-чим-вони-відрізняються-у-використанні">Що таке JSON і XML і чим вони відрізняються у використанні?</a></li>
+    <li><a href="#як-працює-механізм-cors-cross-origin-resource-sharing">Як працює механізм CORS (Cross-Origin Resource Sharing)?</a></li>
+    <li><a href="#що-таке-websocket-і-в-чому-його-особливості-порівняно-з-традиційними-http-запитами">Що таке WebSocket і в чому його особливості порівняно з традиційними HTTP-запитами?</a></li>
+    <li><a href="#як-функціонує-кешування-вебресурсів">Як функціонує кешування вебресурсів?</a></li>
+    <li><a href="#що-таке-ssltls-і-як-це-використовують-для-реалізації-безпеки">Що таке SSL/TLS і як це використовують для реалізації безпеки?</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

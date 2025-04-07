@@ -1,0 +1,31 @@
+baseURL = 'https://toruse.github.io/frontend400'
+theme = 'hugo-book'
+publishDir = 'docs'
+defaultContentLanguage = 'ua'
+
+#[services]
+#  [services.googleAnalytics]
+#    id = 'G-STM9NRDDSY'
+
+[languages]
+[languages.ua]
+  languageName = 'Українська'
+  contentDir = 'content\ua'
+  title = 'Співбесіда: Запитання по Frontend'
+  weight = 1
+
+[languages.en]
+  languageName = 'English'
+  contentDir = 'content\en'
+  title = 'Interview: Frontend Questions'
+  weight = 2
+
+[languages.ru]
+  languageName = 'Русский'
+  contentDir = 'content\ru'
+  title = 'Собеседование: Вопросы по Frontend'
+  weight = 3
+
+[params]
+  BookSection = '*'
+  BookSearch = false

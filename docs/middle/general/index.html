@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ua" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Загальні питання
+  #
+
+
+  Назвіть принципи ООП.
+  #
+
+
+  Поясніть кожну складову SOLID.
+  #
+
+
+  Чому треба звертати увагу на складність алгоритму?
+  #
+
+
+  На які сутності ви розділяєте файлову структуру на початку проєктування?
+  #
+
+
+  Як ви розумієте, що настав час відокремити певну сутність у проєкті?
+  #
+
+
+  Поверхово опишіть, як відбувається білд проєкту?
+  #
+
+
+  Яка ваша улюблена технологія/інструмент/тег у розробці?
+  #
+
+
+  Що ви робите, щоб код було легше підтримувати?
+  #
+
+
+  Що таке рефакторинг і як ви його проводите?
+  #
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://toruse.github.io/frontend400/middle/general/">
+  <meta property="og:site_name" content="Співбесіда: Запитання по Frontend">
+  <meta property="og:title" content="Загальні питання">
+  <meta property="og:description" content="Загальні питання#Назвіть принципи ООП.#Поясніть кожну складову SOLID.#Чому треба звертати увагу на складність алгоритму?#На які сутності ви розділяєте файлову структуру на початку проєктування?#Як ви розумієте, що настав час відокремити певну сутність у проєкті?#Поверхово опишіть, як відбувається білд проєкту?#Яка ваша улюблена технологія/інструмент/тег у розробці?#Що ви робите, щоб код було легше підтримувати?#Що таке рефакторинг і як ви його проводите?#">
+  <meta property="og:locale" content="ua">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="middle">
+<title>Загальні питання | Співбесіда: Запитання по Frontend</title>
+<link rel="icon" href="/frontend400/favicon.png" >
+<link rel="manifest" href="/frontend400/manifest.json">
+<link rel="canonical" href="https://toruse.github.io/frontend400/middle/general/">
+  <link rel="alternate" hreflang="en" href="https://toruse.github.io/frontend400/en/middle/general/" title="Загальні питання">
+  <link rel="alternate" hreflang="ru" href="https://toruse.github.io/frontend400/ru/middle/general/" title="Загальні питання">
+<link rel="stylesheet" href="/frontend400/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css" integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5&#43;NfY=" crossorigin="anonymous"><!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/frontend400/"><span>Співбесіда: Запитання по Frontend</span>
+  </a>
+</h2>
+
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+  
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/frontend400/svg/translate.svg" class="book-icon" alt="Languages" />
+        Українська
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/frontend400/en/middle/general/">
+          English
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frontend400/ru/middle/general/">
+          Русский
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15c7ecd9e2a6547b6a264e1704e5792e" class="toggle"  />
+    <label for="section-15c7ecd9e2a6547b6a264e1704e5792e" class="flex justify-between">
+      <a role="button" class="">Junior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/htmlcss/" class="">Основи HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/web/" class="">Web Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/javascript/" class="">Основи JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/browserapi/" class="">API браузера</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/network/" class="">Основи мережі та протоколи</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/backend/" class="">Робота з бекендом</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/algorithms/" class="">Алгоритми та структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/git/" class="">Git і системи контролю версій</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/typescript/" class="">TypeScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e73e4cae95f95dd2c66533a8ebf8ac9d" class="toggle" checked />
+    <label for="section-e73e4cae95f95dd2c66533a8ebf8ac9d" class="flex justify-between">
+      <a role="button" class="">Middle</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/general/" class="active">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/testing/" class="">Тести</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ac0c2a5efe7c0e7d8cdfc85c3ba7ad85" class="toggle"  />
+    <label for="section-ac0c2a5efe7c0e7d8cdfc85c3ba7ad85" class="flex justify-between">
+      <a role="button" class="">Senior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/general/" class="">Загальні запитання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/algorithms/" class="">Алгоритми і структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/architecture/" class="">Архітектура</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/security/" class="">Безпека</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/frontend400/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Загальні питання</h3>
+
+  <label for="toc-control">
+    
+    <img src="/frontend400/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#назвіть-принципи-ооп">Назвіть принципи ООП.</a></li>
+    <li><a href="#поясніть-кожну-складову-solid">Поясніть кожну складову SOLID.</a></li>
+    <li><a href="#чому-треба-звертати-увагу-на-складність-алгоритму">Чому треба звертати увагу на складність алгоритму?</a></li>
+    <li><a href="#на-які-сутності-ви-розділяєте-файлову-структуру-на-початку-проєктування">На які сутності ви розділяєте файлову структуру на початку проєктування?</a></li>
+    <li><a href="#як-ви-розумієте-що-настав-час-відокремити-певну-сутність-у-проєкті">Як ви розумієте, що настав час відокремити певну сутність у проєкті?</a></li>
+    <li><a href="#поверхово-опишіть-як-відбувається-білд-проєкту">Поверхово опишіть, як відбувається білд проєкту?</a></li>
+    <li><a href="#яка-ваша-улюблена-технологіяінструменттег-у-розробці">Яка ваша улюблена технологія/інструмент/тег у розробці?</a></li>
+    <li><a href="#що-ви-робите-щоб-код-було-легше-підтримувати">Що ви робите, щоб код було легше підтримувати?</a></li>
+    <li><a href="#що-таке-рефакторинг-і-як-ви-його-проводите">Що таке рефакторинг і як ви його проводите?</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="загальні-питання">
+  Загальні питання
+  <a class="anchor" href="#%d0%b7%d0%b0%d0%b3%d0%b0%d0%bb%d1%8c%d0%bd%d1%96-%d0%bf%d0%b8%d1%82%d0%b0%d0%bd%d0%bd%d1%8f">#</a>
+</h1>
+<h2 id="назвіть-принципи-ооп">
+  Назвіть принципи ООП.
+  <a class="anchor" href="#%d0%bd%d0%b0%d0%b7%d0%b2%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%b8%d0%bd%d1%86%d0%b8%d0%bf%d0%b8-%d0%be%d0%be%d0%bf">#</a>
+</h2>
+<h2 id="поясніть-кожну-складову-solid">
+  Поясніть кожну складову SOLID.
+  <a class="anchor" href="#%d0%bf%d0%be%d1%8f%d1%81%d0%bd%d1%96%d1%82%d1%8c-%d0%ba%d0%be%d0%b6%d0%bd%d1%83-%d1%81%d0%ba%d0%bb%d0%b0%d0%b4%d0%be%d0%b2%d1%83-solid">#</a>
+</h2>
+<h2 id="чому-треба-звертати-увагу-на-складність-алгоритму">
+  Чому треба звертати увагу на складність алгоритму?
+  <a class="anchor" href="#%d1%87%d0%be%d0%bc%d1%83-%d1%82%d1%80%d0%b5%d0%b1%d0%b0-%d0%b7%d0%b2%d0%b5%d1%80%d1%82%d0%b0%d1%82%d0%b8-%d1%83%d0%b2%d0%b0%d0%b3%d1%83-%d0%bd%d0%b0-%d1%81%d0%ba%d0%bb%d0%b0%d0%b4%d0%bd%d1%96%d1%81%d1%82%d1%8c-%d0%b0%d0%bb%d0%b3%d0%be%d1%80%d0%b8%d1%82%d0%bc%d1%83">#</a>
+</h2>
+<h2 id="на-які-сутності-ви-розділяєте-файлову-структуру-на-початку-проєктування">
+  На які сутності ви розділяєте файлову структуру на початку проєктування?
+  <a class="anchor" href="#%d0%bd%d0%b0-%d1%8f%d0%ba%d1%96-%d1%81%d1%83%d1%82%d0%bd%d0%be%d1%81%d1%82%d1%96-%d0%b2%d0%b8-%d1%80%d0%be%d0%b7%d0%b4%d1%96%d0%bb%d1%8f%d1%94%d1%82%d0%b5-%d1%84%d0%b0%d0%b9%d0%bb%d0%be%d0%b2%d1%83-%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d1%83-%d0%bd%d0%b0-%d0%bf%d0%be%d1%87%d0%b0%d1%82%d0%ba%d1%83-%d0%bf%d1%80%d0%be%d1%94%d0%ba%d1%82%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f">#</a>
+</h2>
+<h2 id="як-ви-розумієте-що-настав-час-відокремити-певну-сутність-у-проєкті">
+  Як ви розумієте, що настав час відокремити певну сутність у проєкті?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%b2%d0%b8-%d1%80%d0%be%d0%b7%d1%83%d0%bc%d1%96%d1%94%d1%82%d0%b5-%d1%89%d0%be-%d0%bd%d0%b0%d1%81%d1%82%d0%b0%d0%b2-%d1%87%d0%b0%d1%81-%d0%b2%d1%96%d0%b4%d0%be%d0%ba%d1%80%d0%b5%d0%bc%d0%b8%d1%82%d0%b8-%d0%bf%d0%b5%d0%b2%d0%bd%d1%83-%d1%81%d1%83%d1%82%d0%bd%d1%96%d1%81%d1%82%d1%8c-%d1%83-%d0%bf%d1%80%d0%be%d1%94%d0%ba%d1%82%d1%96">#</a>
+</h2>
+<h2 id="поверхово-опишіть-як-відбувається-білд-проєкту">
+  Поверхово опишіть, як відбувається білд проєкту?
+  <a class="anchor" href="#%d0%bf%d0%be%d0%b2%d0%b5%d1%80%d1%85%d0%be%d0%b2%d0%be-%d0%be%d0%bf%d0%b8%d1%88%d1%96%d1%82%d1%8c-%d1%8f%d0%ba-%d0%b2%d1%96%d0%b4%d0%b1%d1%83%d0%b2%d0%b0%d1%94%d1%82%d1%8c%d1%81%d1%8f-%d0%b1%d1%96%d0%bb%d0%b4-%d0%bf%d1%80%d0%be%d1%94%d0%ba%d1%82%d1%83">#</a>
+</h2>
+<h2 id="яка-ваша-улюблена-технологіяінструменттег-у-розробці">
+  Яка ваша улюблена технологія/інструмент/тег у розробці?
+  <a class="anchor" href="#%d1%8f%d0%ba%d0%b0-%d0%b2%d0%b0%d1%88%d0%b0-%d1%83%d0%bb%d1%8e%d0%b1%d0%bb%d0%b5%d0%bd%d0%b0-%d1%82%d0%b5%d1%85%d0%bd%d0%be%d0%bb%d0%be%d0%b3%d1%96%d1%8f%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%bc%d0%b5%d0%bd%d1%82%d1%82%d0%b5%d0%b3-%d1%83-%d1%80%d0%be%d0%b7%d1%80%d0%be%d0%b1%d1%86%d1%96">#</a>
+</h2>
+<h2 id="що-ви-робите-щоб-код-було-легше-підтримувати">
+  Що ви робите, щоб код було легше підтримувати?
+  <a class="anchor" href="#%d1%89%d0%be-%d0%b2%d0%b8-%d1%80%d0%be%d0%b1%d0%b8%d1%82%d0%b5-%d1%89%d0%be%d0%b1-%d0%ba%d0%be%d0%b4-%d0%b1%d1%83%d0%bb%d0%be-%d0%bb%d0%b5%d0%b3%d1%88%d0%b5-%d0%bf%d1%96%d0%b4%d1%82%d1%80%d0%b8%d0%bc%d1%83%d0%b2%d0%b0%d1%82%d0%b8">#</a>
+</h2>
+<h2 id="що-таке-рефакторинг-і-як-ви-його-проводите">
+  Що таке рефакторинг і як ви його проводите?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-%d1%80%d0%b5%d1%84%d0%b0%d0%ba%d1%82%d0%be%d1%80%d0%b8%d0%bd%d0%b3-%d1%96-%d1%8f%d0%ba-%d0%b2%d0%b8-%d0%b9%d0%be%d0%b3%d0%be-%d0%bf%d1%80%d0%be%d0%b2%d0%be%d0%b4%d0%b8%d1%82%d0%b5">#</a>
+</h2>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#назвіть-принципи-ооп">Назвіть принципи ООП.</a></li>
+    <li><a href="#поясніть-кожну-складову-solid">Поясніть кожну складову SOLID.</a></li>
+    <li><a href="#чому-треба-звертати-увагу-на-складність-алгоритму">Чому треба звертати увагу на складність алгоритму?</a></li>
+    <li><a href="#на-які-сутності-ви-розділяєте-файлову-структуру-на-початку-проєктування">На які сутності ви розділяєте файлову структуру на початку проєктування?</a></li>
+    <li><a href="#як-ви-розумієте-що-настав-час-відокремити-певну-сутність-у-проєкті">Як ви розумієте, що настав час відокремити певну сутність у проєкті?</a></li>
+    <li><a href="#поверхово-опишіть-як-відбувається-білд-проєкту">Поверхово опишіть, як відбувається білд проєкту?</a></li>
+    <li><a href="#яка-ваша-улюблена-технологіяінструменттег-у-розробці">Яка ваша улюблена технологія/інструмент/тег у розробці?</a></li>
+    <li><a href="#що-ви-робите-щоб-код-було-легше-підтримувати">Що ви робите, щоб код було легше підтримувати?</a></li>
+    <li><a href="#що-таке-рефакторинг-і-як-ви-його-проводите">Що таке рефакторинг і як ви його проводите?</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

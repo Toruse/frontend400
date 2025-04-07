@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ua" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Фреймворки та бібліотеки
+  #
+
+
+  Що нового зʼявилось у 18-й версії React?
+  #
+
+
+  Як тримати посилання на функцію з актуальними параметрами, але не викликати useEffect зайвий раз?
+  #
+
+
+  У чому різниця між useLayoutEffect та useEffect, у яких випадках що використовуєте?
+  #
+
+
+  Розкажіть про хук useTransition.
+  #
+
+
+  Які патерни з React ви знаєте?
+  #
+
+
+  Наведіть приклад React-патерну Compound components.
+  #
+
+
+  Чи потрібні бібліотеки для state management, якщо є бібліотеки для кешування (React Query/SWR) і React Context?
+  #
+
+
+  Як обробляєте помилки у React-компонентах?
+  #
+
+
+  Поясніть, що відбувається в цьому коді та в яких сценаріях він може бути корисним:
+  #
+
+const useHandler = (f) =&gt; {
+    const ref = React.useRef(f);
+    ref.current = f;
+    return React.useCallback((...args) =&gt; ref.current(...args), []);
+};
+
+  Як управляти глобальним станом у застосунках на Angular через ngrx/store?
+  #
+
+
+  Як ви підтримуєте консистентність дизайну та стилізації великих кодових баз React-проєктів? Які підходи або інструменти використовуєте для підтримання єдності інтерфейсу користувача?
+  #
+
+
+  Як ви структуруєте та організовуєте компоненти великих React-застосунків? Які підходи використовуєте для логічного розділення компонентів, повторного використання та підтримки коду?
+  #
+
+
+  Як управляєте формами в React, зокрема використовуючи бібліотеки для форм, такі як Formik чи React Hook Form? Як обробляєте валідацію, маскування та інші аспекти форм?
+  #
+
+
+  У вас є завдання відрендерити великий список (100к &#43; items). Як би виконали це завдання?
+  #
+
+
+  Оптимізація React-компонентів: що варто робити, а що ні? Чи варто і коли варто використовувати useMemo та useCallback?
+  #
+
+
+  Як збираєте React-застосунок?
+  #
+
+
+  Які інструменти використовували для state management і чому обирали саме їх?
+  #
+
+
+  Чи використовуєте інкрементальну перевірку (incremental static regeneration) в Next.js для оновлення статичних сторінок на основі часових інтервалів або змін у даних? Як це впливає на продуктивність і кешування?
+  #
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://toruse.github.io/frontend400/senior/frameworkslibraries/">
+  <meta property="og:site_name" content="Співбесіда: Запитання по Frontend">
+  <meta property="og:title" content="Фреймворки та бібліотеки">
+  <meta property="og:description" content="Фреймворки та бібліотеки#Що нового зʼявилось у 18-й версії React?#Як тримати посилання на функцію з актуальними параметрами, але не викликати useEffect зайвий раз?#У чому різниця між useLayoutEffect та useEffect, у яких випадках що використовуєте?#Розкажіть про хук useTransition.#Які патерни з React ви знаєте?#Наведіть приклад React-патерну Compound components.#Чи потрібні бібліотеки для state management, якщо є бібліотеки для кешування (React Query/SWR) і React Context?#Як обробляєте помилки у React-компонентах?#Поясніть, що відбувається в цьому коді та в яких сценаріях він може бути корисним:#const useHandler = (f) =&gt; { const ref = React.useRef(f); ref.current = f; return React.useCallback((...args) =&gt; ref.current(...args), []); }; Як управляти глобальним станом у застосунках на Angular через ngrx/store?#Як ви підтримуєте консистентність дизайну та стилізації великих кодових баз React-проєктів? Які підходи або інструменти використовуєте для підтримання єдності інтерфейсу користувача?#Як ви структуруєте та організовуєте компоненти великих React-застосунків? Які підходи використовуєте для логічного розділення компонентів, повторного використання та підтримки коду?#Як управляєте формами в React, зокрема використовуючи бібліотеки для форм, такі як Formik чи React Hook Form? Як обробляєте валідацію, маскування та інші аспекти форм?#У вас є завдання відрендерити великий список (100к &#43; items). Як би виконали це завдання?#Оптимізація React-компонентів: що варто робити, а що ні? Чи варто і коли варто використовувати useMemo та useCallback?#Як збираєте React-застосунок?#Які інструменти використовували для state management і чому обирали саме їх?#Чи використовуєте інкрементальну перевірку (incremental static regeneration) в Next.js для оновлення статичних сторінок на основі часових інтервалів або змін у даних? Як це впливає на продуктивність і кешування?#">
+  <meta property="og:locale" content="ua">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="senior">
+<title>Фреймворки та бібліотеки | Співбесіда: Запитання по Frontend</title>
+<link rel="icon" href="/frontend400/favicon.png" >
+<link rel="manifest" href="/frontend400/manifest.json">
+<link rel="canonical" href="https://toruse.github.io/frontend400/senior/frameworkslibraries/">
+  <link rel="alternate" hreflang="en" href="https://toruse.github.io/frontend400/en/senior/frameworkslibraries/" title="Фреймворки та бібліотеки">
+  <link rel="alternate" hreflang="ru" href="https://toruse.github.io/frontend400/ru/senior/frameworkslibraries/" title="Фреймворки та бібліотеки">
+<link rel="stylesheet" href="/frontend400/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css" integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5&#43;NfY=" crossorigin="anonymous"><!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/frontend400/"><span>Співбесіда: Запитання по Frontend</span>
+  </a>
+</h2>
+
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+  
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/frontend400/svg/translate.svg" class="book-icon" alt="Languages" />
+        Українська
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/frontend400/en/senior/frameworkslibraries/">
+          English
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frontend400/ru/senior/frameworkslibraries/">
+          Русский
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-15c7ecd9e2a6547b6a264e1704e5792e" class="toggle"  />
+    <label for="section-15c7ecd9e2a6547b6a264e1704e5792e" class="flex justify-between">
+      <a role="button" class="">Junior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/htmlcss/" class="">Основи HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/web/" class="">Web Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/javascript/" class="">Основи JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/browserapi/" class="">API браузера</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/network/" class="">Основи мережі та протоколи</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/backend/" class="">Робота з бекендом</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/algorithms/" class="">Алгоритми та структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/git/" class="">Git і системи контролю версій</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/typescript/" class="">TypeScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/junior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e73e4cae95f95dd2c66533a8ebf8ac9d" class="toggle"  />
+    <label for="section-e73e4cae95f95dd2c66533a8ebf8ac9d" class="flex justify-between">
+      <a role="button" class="">Middle</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/testing/" class="">Тести</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/middle/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ac0c2a5efe7c0e7d8cdfc85c3ba7ad85" class="toggle" checked />
+    <label for="section-ac0c2a5efe7c0e7d8cdfc85c3ba7ad85" class="flex justify-between">
+      <a role="button" class="">Senior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/general/" class="">Загальні запитання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/frameworkslibraries/" class="active">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/algorithms/" class="">Алгоритми і структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/architecture/" class="">Архітектура</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/security/" class="">Безпека</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/senior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/frontend400/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Фреймворки та бібліотеки</h3>
+
+  <label for="toc-control">
+    
+    <img src="/frontend400/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#що-нового-зʼявилось-у-18-й-версії-react">Що нового зʼявилось у 18-й версії React?</a></li>
+    <li><a href="#як-тримати-посилання-на-функцію-з-актуальними-параметрами-але-не-викликати-useeffect-зайвий-раз">Як тримати посилання на функцію з актуальними параметрами, але не викликати useEffect зайвий раз?</a></li>
+    <li><a href="#у-чому-різниця-між-uselayouteffect-та-useeffect-у-яких-випадках-що-використовуєте">У чому різниця між useLayoutEffect та useEffect, у яких випадках що використовуєте?</a></li>
+    <li><a href="#розкажіть-про-хук-usetransition">Розкажіть про хук useTransition.</a></li>
+    <li><a href="#які-патерни-з-react-ви-знаєте">Які патерни з React ви знаєте?</a></li>
+    <li><a href="#наведіть-приклад-react-патерну-compound-components">Наведіть приклад React-патерну Compound components.</a></li>
+    <li><a href="#чи-потрібні-бібліотеки-для-state-management-якщо-є-бібліотеки-для-кешування-react-queryswr-і-react-context">Чи потрібні бібліотеки для state management, якщо є бібліотеки для кешування (React Query/SWR) і React Context?</a></li>
+    <li><a href="#як-обробляєте-помилки-у-react-компонентах">Як обробляєте помилки у React-компонентах?</a></li>
+    <li><a href="#поясніть-що-відбувається-в-цьому-коді-та-в-яких-сценаріях-він-може-бути-корисним">Поясніть, що відбувається в цьому коді та в яких сценаріях він може бути корисним:</a></li>
+    <li><a href="#як-управляти-глобальним-станом-у-застосунках-на-angular-через-ngrxstore">Як управляти глобальним станом у застосунках на Angular через ngrx/store?</a></li>
+    <li><a href="#як-ви-підтримуєте-консистентність-дизайну-та-стилізації-великих-кодових-баз-react-проєктів-які-підходи-або-інструменти-використовуєте-для-підтримання-єдності-інтерфейсу-користувача">Як ви підтримуєте консистентність дизайну та стилізації великих кодових баз React-проєктів? Які підходи або інструменти використовуєте для підтримання єдності інтерфейсу користувача?</a></li>
+    <li><a href="#як-ви-структуруєте-та-організовуєте-компоненти-великих-react-застосунків-які-підходи-використовуєте-для-логічного-розділення-компонентів-повторного-використання-та-підтримки-коду">Як ви структуруєте та організовуєте компоненти великих React-застосунків? Які підходи використовуєте для логічного розділення компонентів, повторного використання та підтримки коду?</a></li>
+    <li><a href="#як-управляєте-формами-в-react-зокрема-використовуючи-бібліотеки-для-форм-такі-як-formik-чи-react-hook-form-як-обробляєте-валідацію-маскування-та-інші-аспекти-форм">Як управляєте формами в React, зокрема використовуючи бібліотеки для форм, такі як Formik чи React Hook Form? Як обробляєте валідацію, маскування та інші аспекти форм?</a></li>
+    <li><a href="#у-вас-є-завдання-відрендерити-великий-список-100к--items-як-би-виконали-це-завдання">У вас є завдання відрендерити великий список (100к + items). Як би виконали це завдання?</a></li>
+    <li><a href="#оптимізація-react-компонентів-що-варто-робити-а-що-ні-чи-варто-і-коли-варто-використовувати-usememo-та-usecallback">Оптимізація React-компонентів: що варто робити, а що ні? Чи варто і коли варто використовувати useMemo та useCallback?</a></li>
+    <li><a href="#як-збираєте-react-застосунок">Як збираєте React-застосунок?</a></li>
+    <li><a href="#які-інструменти-використовували-для-state-management-і-чому-обирали-саме-їх">Які інструменти використовували для state management і чому обирали саме їх?</a></li>
+    <li><a href="#чи-використовуєте-інкрементальну-перевірку-incremental-static-regeneration-в-nextjs-для-оновлення-статичних-сторінок-на-основі-часових-інтервалів-або-змін-у-даних-як-це-впливає-на-продуктивність-і-кешування">Чи використовуєте інкрементальну перевірку (incremental static regeneration) в Next.js для оновлення статичних сторінок на основі часових інтервалів або змін у даних? Як це впливає на продуктивність і кешування?</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="фреймворки-та-бібліотеки">
+  Фреймворки та бібліотеки
+  <a class="anchor" href="#%d1%84%d1%80%d0%b5%d0%b9%d0%bc%d0%b2%d0%be%d1%80%d0%ba%d0%b8-%d1%82%d0%b0-%d0%b1%d1%96%d0%b1%d0%bb%d1%96%d0%be%d1%82%d0%b5%d0%ba%d0%b8">#</a>
+</h1>
+<h2 id="що-нового-зʼявилось-у-18-й-версії-react">
+  Що нового зʼявилось у 18-й версії React?
+  <a class="anchor" href="#%d1%89%d0%be-%d0%bd%d0%be%d0%b2%d0%be%d0%b3%d0%be-%d0%b7%ca%bc%d1%8f%d0%b2%d0%b8%d0%bb%d0%be%d1%81%d1%8c-%d1%83-18-%d0%b9-%d0%b2%d0%b5%d1%80%d1%81%d1%96%d1%97-react">#</a>
+</h2>
+<h2 id="як-тримати-посилання-на-функцію-з-актуальними-параметрами-але-не-викликати-useeffect-зайвий-раз">
+  Як тримати посилання на функцію з актуальними параметрами, але не викликати useEffect зайвий раз?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d1%82%d1%80%d0%b8%d0%bc%d0%b0%d1%82%d0%b8-%d0%bf%d0%be%d1%81%d0%b8%d0%bb%d0%b0%d0%bd%d0%bd%d1%8f-%d0%bd%d0%b0-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d1%96%d1%8e-%d0%b7-%d0%b0%d0%ba%d1%82%d1%83%d0%b0%d0%bb%d1%8c%d0%bd%d0%b8%d0%bc%d0%b8-%d0%bf%d0%b0%d1%80%d0%b0%d0%bc%d0%b5%d1%82%d1%80%d0%b0%d0%bc%d0%b8-%d0%b0%d0%bb%d0%b5-%d0%bd%d0%b5-%d0%b2%d0%b8%d0%ba%d0%bb%d0%b8%d0%ba%d0%b0%d1%82%d0%b8-useeffect-%d0%b7%d0%b0%d0%b9%d0%b2%d0%b8%d0%b9-%d1%80%d0%b0%d0%b7">#</a>
+</h2>
+<h2 id="у-чому-різниця-між-uselayouteffect-та-useeffect-у-яких-випадках-що-використовуєте">
+  У чому різниця між useLayoutEffect та useEffect, у яких випадках що використовуєте?
+  <a class="anchor" href="#%d1%83-%d1%87%d0%be%d0%bc%d1%83-%d1%80%d1%96%d0%b7%d0%bd%d0%b8%d1%86%d1%8f-%d0%bc%d1%96%d0%b6-uselayouteffect-%d1%82%d0%b0-useeffect-%d1%83-%d1%8f%d0%ba%d0%b8%d1%85-%d0%b2%d0%b8%d0%bf%d0%b0%d0%b4%d0%ba%d0%b0%d1%85-%d1%89%d0%be-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5">#</a>
+</h2>
+<h2 id="розкажіть-про-хук-usetransition">
+  Розкажіть про хук useTransition.
+  <a class="anchor" href="#%d1%80%d0%be%d0%b7%d0%ba%d0%b0%d0%b6%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%be-%d1%85%d1%83%d0%ba-usetransition">#</a>
+</h2>
+<h2 id="які-патерни-з-react-ви-знаєте">
+  Які патерни з React ви знаєте?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d0%bf%d0%b0%d1%82%d0%b5%d1%80%d0%bd%d0%b8-%d0%b7-react-%d0%b2%d0%b8-%d0%b7%d0%bd%d0%b0%d1%94%d1%82%d0%b5">#</a>
+</h2>
+<h2 id="наведіть-приклад-react-патерну-compound-components">
+  Наведіть приклад React-патерну Compound components.
+  <a class="anchor" href="#%d0%bd%d0%b0%d0%b2%d0%b5%d0%b4%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4-react-%d0%bf%d0%b0%d1%82%d0%b5%d1%80%d0%bd%d1%83-compound-components">#</a>
+</h2>
+<h2 id="чи-потрібні-бібліотеки-для-state-management-якщо-є-бібліотеки-для-кешування-react-queryswr-і-react-context">
+  Чи потрібні бібліотеки для state management, якщо є бібліотеки для кешування (React Query/SWR) і React Context?
+  <a class="anchor" href="#%d1%87%d0%b8-%d0%bf%d0%be%d1%82%d1%80%d1%96%d0%b1%d0%bd%d1%96-%d0%b1%d1%96%d0%b1%d0%bb%d1%96%d0%be%d1%82%d0%b5%d0%ba%d0%b8-%d0%b4%d0%bb%d1%8f-state-management-%d1%8f%d0%ba%d1%89%d0%be-%d1%94-%d0%b1%d1%96%d0%b1%d0%bb%d1%96%d0%be%d1%82%d0%b5%d0%ba%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%b5%d1%88%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-react-queryswr-%d1%96-react-context">#</a>
+</h2>
+<h2 id="як-обробляєте-помилки-у-react-компонентах">
+  Як обробляєте помилки у React-компонентах?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%be%d0%b1%d1%80%d0%be%d0%b1%d0%bb%d1%8f%d1%94%d1%82%d0%b5-%d0%bf%d0%be%d0%bc%d0%b8%d0%bb%d0%ba%d0%b8-%d1%83-react-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d0%b0%d1%85">#</a>
+</h2>
+<h2 id="поясніть-що-відбувається-в-цьому-коді-та-в-яких-сценаріях-він-може-бути-корисним">
+  Поясніть, що відбувається в цьому коді та в яких сценаріях він може бути корисним:
+  <a class="anchor" href="#%d0%bf%d0%be%d1%8f%d1%81%d0%bd%d1%96%d1%82%d1%8c-%d1%89%d0%be-%d0%b2%d1%96%d0%b4%d0%b1%d1%83%d0%b2%d0%b0%d1%94%d1%82%d1%8c%d1%81%d1%8f-%d0%b2-%d1%86%d1%8c%d0%be%d0%bc%d1%83-%d0%ba%d0%be%d0%b4%d1%96-%d1%82%d0%b0-%d0%b2-%d1%8f%d0%ba%d0%b8%d1%85-%d1%81%d1%86%d0%b5%d0%bd%d0%b0%d1%80%d1%96%d1%8f%d1%85-%d0%b2%d1%96%d0%bd-%d0%bc%d0%be%d0%b6%d0%b5-%d0%b1%d1%83%d1%82%d0%b8-%d0%ba%d0%be%d1%80%d0%b8%d1%81%d0%bd%d0%b8%d0%bc">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">useHandler</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">f</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ref</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useRef</span>(<span style="color:#a6e22e">f</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ref</span>.<span style="color:#a6e22e">current</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">useCallback</span>((...<span style="color:#a6e22e">args</span>) =&gt; <span style="color:#a6e22e">ref</span>.<span style="color:#a6e22e">current</span>(...<span style="color:#a6e22e">args</span>), []);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h2 id="як-управляти-глобальним-станом-у-застосунках-на-angular-через-ngrxstore">
+  Як управляти глобальним станом у застосунках на Angular через ngrx/store?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d1%8f%d1%82%d0%b8-%d0%b3%d0%bb%d0%be%d0%b1%d0%b0%d0%bb%d1%8c%d0%bd%d0%b8%d0%bc-%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%bc-%d1%83-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%bd%d0%ba%d0%b0%d1%85-%d0%bd%d0%b0-angular-%d1%87%d0%b5%d1%80%d0%b5%d0%b7-ngrxstore">#</a>
+</h2>
+<h2 id="як-ви-підтримуєте-консистентність-дизайну-та-стилізації-великих-кодових-баз-react-проєктів-які-підходи-або-інструменти-використовуєте-для-підтримання-єдності-інтерфейсу-користувача">
+  Як ви підтримуєте консистентність дизайну та стилізації великих кодових баз React-проєктів? Які підходи або інструменти використовуєте для підтримання єдності інтерфейсу користувача?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%b2%d0%b8-%d0%bf%d1%96%d0%b4%d1%82%d1%80%d0%b8%d0%bc%d1%83%d1%94%d1%82%d0%b5-%d0%ba%d0%be%d0%bd%d1%81%d0%b8%d1%81%d1%82%d0%b5%d0%bd%d1%82%d0%bd%d1%96%d1%81%d1%82%d1%8c-%d0%b4%d0%b8%d0%b7%d0%b0%d0%b9%d0%bd%d1%83-%d1%82%d0%b0-%d1%81%d1%82%d0%b8%d0%bb%d1%96%d0%b7%d0%b0%d1%86%d1%96%d1%97-%d0%b2%d0%b5%d0%bb%d0%b8%d0%ba%d0%b8%d1%85-%d0%ba%d0%be%d0%b4%d0%be%d0%b2%d0%b8%d1%85-%d0%b1%d0%b0%d0%b7-react-%d0%bf%d1%80%d0%be%d1%94%d0%ba%d1%82%d1%96%d0%b2-%d1%8f%d0%ba%d1%96-%d0%bf%d1%96%d0%b4%d1%85%d0%be%d0%b4%d0%b8-%d0%b0%d0%b1%d0%be-%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%bc%d0%b5%d0%bd%d1%82%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-%d0%b4%d0%bb%d1%8f-%d0%bf%d1%96%d0%b4%d1%82%d1%80%d0%b8%d0%bc%d0%b0%d0%bd%d0%bd%d1%8f-%d1%94%d0%b4%d0%bd%d0%be%d1%81%d1%82%d1%96-%d1%96%d0%bd%d1%82%d0%b5%d1%80%d1%84%d0%b5%d0%b9%d1%81%d1%83-%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d1%83%d0%b2%d0%b0%d1%87%d0%b0">#</a>
+</h2>
+<h2 id="як-ви-структуруєте-та-організовуєте-компоненти-великих-react-застосунків-які-підходи-використовуєте-для-логічного-розділення-компонентів-повторного-використання-та-підтримки-коду">
+  Як ви структуруєте та організовуєте компоненти великих React-застосунків? Які підходи використовуєте для логічного розділення компонентів, повторного використання та підтримки коду?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%b2%d0%b8-%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d1%83%d1%94%d1%82%d0%b5-%d1%82%d0%b0-%d0%be%d1%80%d0%b3%d0%b0%d0%bd%d1%96%d0%b7%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d0%b8-%d0%b2%d0%b5%d0%bb%d0%b8%d0%ba%d0%b8%d1%85-react-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%bd%d0%ba%d1%96%d0%b2-%d1%8f%d0%ba%d1%96-%d0%bf%d1%96%d0%b4%d1%85%d0%be%d0%b4%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-%d0%b4%d0%bb%d1%8f-%d0%bb%d0%be%d0%b3%d1%96%d1%87%d0%bd%d0%be%d0%b3%d0%be-%d1%80%d0%be%d0%b7%d0%b4%d1%96%d0%bb%d0%b5%d0%bd%d0%bd%d1%8f-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d1%96%d0%b2-%d0%bf%d0%be%d0%b2%d1%82%d0%be%d1%80%d0%bd%d0%be%d0%b3%d0%be-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f-%d1%82%d0%b0-%d0%bf%d1%96%d0%b4%d1%82%d1%80%d0%b8%d0%bc%d0%ba%d0%b8-%d0%ba%d0%be%d0%b4%d1%83">#</a>
+</h2>
+<h2 id="як-управляєте-формами-в-react-зокрема-використовуючи-бібліотеки-для-форм-такі-як-formik-чи-react-hook-form-як-обробляєте-валідацію-маскування-та-інші-аспекти-форм">
+  Як управляєте формами в React, зокрема використовуючи бібліотеки для форм, такі як Formik чи React Hook Form? Як обробляєте валідацію, маскування та інші аспекти форм?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d1%8f%d1%94%d1%82%d0%b5-%d1%84%d0%be%d1%80%d0%bc%d0%b0%d0%bc%d0%b8-%d0%b2-react-%d0%b7%d0%be%d0%ba%d1%80%d0%b5%d0%bc%d0%b0-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%8e%d1%87%d0%b8-%d0%b1%d1%96%d0%b1%d0%bb%d1%96%d0%be%d1%82%d0%b5%d0%ba%d0%b8-%d0%b4%d0%bb%d1%8f-%d1%84%d0%be%d1%80%d0%bc-%d1%82%d0%b0%d0%ba%d1%96-%d1%8f%d0%ba-formik-%d1%87%d0%b8-react-hook-form-%d1%8f%d0%ba-%d0%be%d0%b1%d1%80%d0%be%d0%b1%d0%bb%d1%8f%d1%94%d1%82%d0%b5-%d0%b2%d0%b0%d0%bb%d1%96%d0%b4%d0%b0%d1%86%d1%96%d1%8e-%d0%bc%d0%b0%d1%81%d0%ba%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d1%82%d0%b0-%d1%96%d0%bd%d1%88%d1%96-%d0%b0%d1%81%d0%bf%d0%b5%d0%ba%d1%82%d0%b8-%d1%84%d0%be%d1%80%d0%bc">#</a>
+</h2>
+<h2 id="у-вас-є-завдання-відрендерити-великий-список-100к--items-як-би-виконали-це-завдання">
+  У вас є завдання відрендерити великий список (100к + items). Як би виконали це завдання?
+  <a class="anchor" href="#%d1%83-%d0%b2%d0%b0%d1%81-%d1%94-%d0%b7%d0%b0%d0%b2%d0%b4%d0%b0%d0%bd%d0%bd%d1%8f-%d0%b2%d1%96%d0%b4%d1%80%d0%b5%d0%bd%d0%b4%d0%b5%d1%80%d0%b8%d1%82%d0%b8-%d0%b2%d0%b5%d0%bb%d0%b8%d0%ba%d0%b8%d0%b9-%d1%81%d0%bf%d0%b8%d1%81%d0%be%d0%ba-100%d0%ba--items-%d1%8f%d0%ba-%d0%b1%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d0%bd%d0%b0%d0%bb%d0%b8-%d1%86%d0%b5-%d0%b7%d0%b0%d0%b2%d0%b4%d0%b0%d0%bd%d0%bd%d1%8f">#</a>
+</h2>
+<h2 id="оптимізація-react-компонентів-що-варто-робити-а-що-ні-чи-варто-і-коли-варто-використовувати-usememo-та-usecallback">
+  Оптимізація React-компонентів: що варто робити, а що ні? Чи варто і коли варто використовувати useMemo та useCallback?
+  <a class="anchor" href="#%d0%be%d0%bf%d1%82%d0%b8%d0%bc%d1%96%d0%b7%d0%b0%d1%86%d1%96%d1%8f-react-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d1%96%d0%b2-%d1%89%d0%be-%d0%b2%d0%b0%d1%80%d1%82%d0%be-%d1%80%d0%be%d0%b1%d0%b8%d1%82%d0%b8-%d0%b0-%d1%89%d0%be-%d0%bd%d1%96-%d1%87%d0%b8-%d0%b2%d0%b0%d1%80%d1%82%d0%be-%d1%96-%d0%ba%d0%be%d0%bb%d0%b8-%d0%b2%d0%b0%d1%80%d1%82%d0%be-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d0%b2%d0%b0%d1%82%d0%b8-usememo-%d1%82%d0%b0-usecallback">#</a>
+</h2>
+<h2 id="як-збираєте-react-застосунок">
+  Як збираєте React-застосунок?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%b7%d0%b1%d0%b8%d1%80%d0%b0%d1%94%d1%82%d0%b5-react-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%bd%d0%be%d0%ba">#</a>
+</h2>
+<h2 id="які-інструменти-використовували-для-state-management-і-чому-обирали-саме-їх">
+  Які інструменти використовували для state management і чому обирали саме їх?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%bc%d0%b5%d0%bd%d1%82%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d0%b2%d0%b0%d0%bb%d0%b8-%d0%b4%d0%bb%d1%8f-state-management-%d1%96-%d1%87%d0%be%d0%bc%d1%83-%d0%be%d0%b1%d0%b8%d1%80%d0%b0%d0%bb%d0%b8-%d1%81%d0%b0%d0%bc%d0%b5-%d1%97%d1%85">#</a>
+</h2>
+<h2 id="чи-використовуєте-інкрементальну-перевірку-incremental-static-regeneration-в-nextjs-для-оновлення-статичних-сторінок-на-основі-часових-інтервалів-або-змін-у-даних-як-це-впливає-на-продуктивність-і-кешування">
+  Чи використовуєте інкрементальну перевірку (incremental static regeneration) в Next.js для оновлення статичних сторінок на основі часових інтервалів або змін у даних? Як це впливає на продуктивність і кешування?
+  <a class="anchor" href="#%d1%87%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-%d1%96%d0%bd%d0%ba%d1%80%d0%b5%d0%bc%d0%b5%d0%bd%d1%82%d0%b0%d0%bb%d1%8c%d0%bd%d1%83-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d1%96%d1%80%d0%ba%d1%83-incremental-static-regeneration-%d0%b2-nextjs-%d0%b4%d0%bb%d1%8f-%d0%be%d0%bd%d0%be%d0%b2%d0%bb%d0%b5%d0%bd%d0%bd%d1%8f-%d1%81%d1%82%d0%b0%d1%82%d0%b8%d1%87%d0%bd%d0%b8%d1%85-%d1%81%d1%82%d0%be%d1%80%d1%96%d0%bd%d0%be%d0%ba-%d0%bd%d0%b0-%d0%be%d1%81%d0%bd%d0%be%d0%b2%d1%96-%d1%87%d0%b0%d1%81%d0%be%d0%b2%d0%b8%d1%85-%d1%96%d0%bd%d1%82%d0%b5%d1%80%d0%b2%d0%b0%d0%bb%d1%96%d0%b2-%d0%b0%d0%b1%d0%be-%d0%b7%d0%bc%d1%96%d0%bd-%d1%83-%d0%b4%d0%b0%d0%bd%d0%b8%d1%85-%d1%8f%d0%ba-%d1%86%d0%b5-%d0%b2%d0%bf%d0%bb%d0%b8%d0%b2%d0%b0%d1%94-%d0%bd%d0%b0-%d0%bf%d1%80%d0%be%d0%b4%d1%83%d0%ba%d1%82%d0%b8%d0%b2%d0%bd%d1%96%d1%81%d1%82%d1%8c-%d1%96-%d0%ba%d0%b5%d1%88%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f">#</a>
+</h2>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#що-нового-зʼявилось-у-18-й-версії-react">Що нового зʼявилось у 18-й версії React?</a></li>
+    <li><a href="#як-тримати-посилання-на-функцію-з-актуальними-параметрами-але-не-викликати-useeffect-зайвий-раз">Як тримати посилання на функцію з актуальними параметрами, але не викликати useEffect зайвий раз?</a></li>
+    <li><a href="#у-чому-різниця-між-uselayouteffect-та-useeffect-у-яких-випадках-що-використовуєте">У чому різниця між useLayoutEffect та useEffect, у яких випадках що використовуєте?</a></li>
+    <li><a href="#розкажіть-про-хук-usetransition">Розкажіть про хук useTransition.</a></li>
+    <li><a href="#які-патерни-з-react-ви-знаєте">Які патерни з React ви знаєте?</a></li>
+    <li><a href="#наведіть-приклад-react-патерну-compound-components">Наведіть приклад React-патерну Compound components.</a></li>
+    <li><a href="#чи-потрібні-бібліотеки-для-state-management-якщо-є-бібліотеки-для-кешування-react-queryswr-і-react-context">Чи потрібні бібліотеки для state management, якщо є бібліотеки для кешування (React Query/SWR) і React Context?</a></li>
+    <li><a href="#як-обробляєте-помилки-у-react-компонентах">Як обробляєте помилки у React-компонентах?</a></li>
+    <li><a href="#поясніть-що-відбувається-в-цьому-коді-та-в-яких-сценаріях-він-може-бути-корисним">Поясніть, що відбувається в цьому коді та в яких сценаріях він може бути корисним:</a></li>
+    <li><a href="#як-управляти-глобальним-станом-у-застосунках-на-angular-через-ngrxstore">Як управляти глобальним станом у застосунках на Angular через ngrx/store?</a></li>
+    <li><a href="#як-ви-підтримуєте-консистентність-дизайну-та-стилізації-великих-кодових-баз-react-проєктів-які-підходи-або-інструменти-використовуєте-для-підтримання-єдності-інтерфейсу-користувача">Як ви підтримуєте консистентність дизайну та стилізації великих кодових баз React-проєктів? Які підходи або інструменти використовуєте для підтримання єдності інтерфейсу користувача?</a></li>
+    <li><a href="#як-ви-структуруєте-та-організовуєте-компоненти-великих-react-застосунків-які-підходи-використовуєте-для-логічного-розділення-компонентів-повторного-використання-та-підтримки-коду">Як ви структуруєте та організовуєте компоненти великих React-застосунків? Які підходи використовуєте для логічного розділення компонентів, повторного використання та підтримки коду?</a></li>
+    <li><a href="#як-управляєте-формами-в-react-зокрема-використовуючи-бібліотеки-для-форм-такі-як-formik-чи-react-hook-form-як-обробляєте-валідацію-маскування-та-інші-аспекти-форм">Як управляєте формами в React, зокрема використовуючи бібліотеки для форм, такі як Formik чи React Hook Form? Як обробляєте валідацію, маскування та інші аспекти форм?</a></li>
+    <li><a href="#у-вас-є-завдання-відрендерити-великий-список-100к--items-як-би-виконали-це-завдання">У вас є завдання відрендерити великий список (100к + items). Як би виконали це завдання?</a></li>
+    <li><a href="#оптимізація-react-компонентів-що-варто-робити-а-що-ні-чи-варто-і-коли-варто-використовувати-usememo-та-usecallback">Оптимізація React-компонентів: що варто робити, а що ні? Чи варто і коли варто використовувати useMemo та useCallback?</a></li>
+    <li><a href="#як-збираєте-react-застосунок">Як збираєте React-застосунок?</a></li>
+    <li><a href="#які-інструменти-використовували-для-state-management-і-чому-обирали-саме-їх">Які інструменти використовували для state management і чому обирали саме їх?</a></li>
+    <li><a href="#чи-використовуєте-інкрементальну-перевірку-incremental-static-regeneration-в-nextjs-для-оновлення-статичних-сторінок-на-основі-часових-інтервалів-або-змін-у-даних-як-це-впливає-на-продуктивність-і-кешування">Чи використовуєте інкрементальну перевірку (incremental static regeneration) в Next.js для оновлення статичних сторінок на основі часових інтервалів або змін у даних? Як це впливає на продуктивність і кешування?</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

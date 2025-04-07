@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Фреймворки та бібліотеки
+  #
+
+
+  Розкажіть про управління станом у Vue.js.
+  #
+
+
+  Як реалізувати маршрутизацію (routing) в React?
+  #
+
+
+  Як оптимізувати рендеринг компонентів у React?
+  #
+
+
+  Як оптимізувати продуктивність у великих React-застосунках?
+  #
+
+
+  З якими проблемами в React-компонентах часто стикались?
+  #
+
+
+  Як ви управляєте станами в React APP? Як передавати стани між кількома компонентами?
+  #
+
+
+  Які підходи використовуєте для lazy loading компонентів, управління станом і кешування даних?
+  #
+
+
+  Що таке side effects? З якими інструментами є досвід?
+  #
+
+
+  Як вирішуєте проблеми маршрутизації в складних React-застосунках? Які підходи використовуєте для організації маршрутів та управління структурою застосунку?
+  #
+
+
+  Як обробляєте анімації в React? Як використовуєте CSS-анімації та бібліотеки для створення плавних і високопродуктивних анімацій?
+  #
+
+
+  Як використовуєте архітектурні патерни (наприклад, Flux або Redux) для ефективного управління станом у React-застосунку? Які переваги та обмеження бачите в застосуванні цих патернів?
+  #
+
+
+  Як оптимізуєте та масштабуєте Next.js застосунки для високого трафіку? Як вирішуєте питання кешування, CDN, інших аспектів продуктивності?
+  #
+
+
+  Що таке ре-рендер компонента, коли він відбувається чи можна вплинути на цей процес?
+  #
+
+
+  Що таке React Context, коли його використовуєте?
+  #
+
+
+  Що таке мемоїзація в React та коли вона потрібна?
+  #
+
+
+  Як виконати код перед видаленням компонента з дерева?
+  #
+
+
+  У яких випадках використовуєте useReducer?
+  #
+
+
+  Які UI-бібліотеки знаєте, у чому їхні переваги та недоліки?
+  #
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://toruse.github.io/frontend400/ru/middle/frameworkslibraries/">
+  <meta property="og:site_name" content="Собеседование: Вопросы по Frontend">
+  <meta property="og:title" content="Фреймворки та бібліотеки">
+  <meta property="og:description" content="Фреймворки та бібліотеки#Розкажіть про управління станом у Vue.js.#Як реалізувати маршрутизацію (routing) в React?#Як оптимізувати рендеринг компонентів у React?#Як оптимізувати продуктивність у великих React-застосунках?#З якими проблемами в React-компонентах часто стикались?#Як ви управляєте станами в React APP? Як передавати стани між кількома компонентами?#Які підходи використовуєте для lazy loading компонентів, управління станом і кешування даних?#Що таке side effects? З якими інструментами є досвід?#Як вирішуєте проблеми маршрутизації в складних React-застосунках? Які підходи використовуєте для організації маршрутів та управління структурою застосунку?#Як обробляєте анімації в React? Як використовуєте CSS-анімації та бібліотеки для створення плавних і високопродуктивних анімацій?#Як використовуєте архітектурні патерни (наприклад, Flux або Redux) для ефективного управління станом у React-застосунку? Які переваги та обмеження бачите в застосуванні цих патернів?#Як оптимізуєте та масштабуєте Next.js застосунки для високого трафіку? Як вирішуєте питання кешування, CDN, інших аспектів продуктивності?#Що таке ре-рендер компонента, коли він відбувається чи можна вплинути на цей процес?#Що таке React Context, коли його використовуєте?#Що таке мемоїзація в React та коли вона потрібна?#Як виконати код перед видаленням компонента з дерева?#У яких випадках використовуєте useReducer?#Які UI-бібліотеки знаєте, у чому їхні переваги та недоліки?#">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="middle">
+<title>Фреймворки та бібліотеки | Собеседование: Вопросы по Frontend</title>
+<link rel="icon" href="/frontend400/favicon.png" >
+<link rel="manifest" href="/frontend400/manifest.json">
+<link rel="canonical" href="https://toruse.github.io/frontend400/ru/middle/frameworkslibraries/">
+  <link rel="alternate" hreflang="ua" href="https://toruse.github.io/frontend400/middle/frameworkslibraries/" title="Фреймворки та бібліотеки">
+  <link rel="alternate" hreflang="en" href="https://toruse.github.io/frontend400/en/middle/frameworkslibraries/" title="Фреймворки та бібліотеки">
+<link rel="stylesheet" href="/frontend400/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css" integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5&#43;NfY=" crossorigin="anonymous"><!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/frontend400/ru/"><span>Собеседование: Вопросы по Frontend</span>
+  </a>
+</h2>
+
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+  
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/frontend400/svg/translate.svg" class="book-icon" alt="Languages" />
+        Русский
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/frontend400/middle/frameworkslibraries/">
+          Українська
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frontend400/en/middle/frameworkslibraries/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-74271b9e3958efd1064bff9b4a27bd53" class="toggle"  />
+    <label for="section-74271b9e3958efd1064bff9b4a27bd53" class="flex justify-between">
+      <a role="button" class="">Junior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/htmlcss/" class="">Основи HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/web/" class="">Web Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/javascript/" class="">Основи JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/browserapi/" class="">API браузера</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/network/" class="">Основи мережі та протоколи</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/backend/" class="">Робота з бекендом</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/algorithms/" class="">Алгоритми та структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/git/" class="">Git і системи контролю версій</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/typescript/" class="">TypeScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-18b4f0f8cb7ef7c80d2829fb30d37b01" class="toggle" checked />
+    <label for="section-18b4f0f8cb7ef7c80d2829fb30d37b01" class="flex justify-between">
+      <a role="button" class="">Middle</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/frameworkslibraries/" class="active">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/testing/" class="">Тести</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5520c7b13aef4cf221ae2cddad677702" class="toggle"  />
+    <label for="section-5520c7b13aef4cf221ae2cddad677702" class="flex justify-between">
+      <a role="button" class="">Senior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/general/" class="">Загальні запитання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/algorithms/" class="">Алгоритми і структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/architecture/" class="">Архітектура</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/security/" class="">Безпека</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/frontend400/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Фреймворки та бібліотеки</h3>
+
+  <label for="toc-control">
+    
+    <img src="/frontend400/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#розкажіть-про-управління-станом-у-vuejs">Розкажіть про управління станом у Vue.js.</a></li>
+    <li><a href="#як-реалізувати-маршрутизацію-routing-в-react">Як реалізувати маршрутизацію (routing) в React?</a></li>
+    <li><a href="#як-оптимізувати-рендеринг-компонентів-у-react">Як оптимізувати рендеринг компонентів у React?</a></li>
+    <li><a href="#як-оптимізувати-продуктивність-у-великих-react-застосунках">Як оптимізувати продуктивність у великих React-застосунках?</a></li>
+    <li><a href="#з-якими-проблемами-в-react-компонентах-часто-стикались">З якими проблемами в React-компонентах часто стикались?</a></li>
+    <li><a href="#як-ви-управляєте-станами-в-react-app-як-передавати-стани-між-кількома-компонентами">Як ви управляєте станами в React APP? Як передавати стани між кількома компонентами?</a></li>
+    <li><a href="#які-підходи-використовуєте-для-lazy-loading-компонентів-управління-станом-і-кешування-даних">Які підходи використовуєте для lazy loading компонентів, управління станом і кешування даних?</a></li>
+    <li><a href="#що-таке-side-effects-з-якими-інструментами-є-досвід">Що таке side effects? З якими інструментами є досвід?</a></li>
+    <li><a href="#як-вирішуєте-проблеми-маршрутизації-в-складних-react-застосунках-які-підходи-використовуєте-для-організації-маршрутів-та-управління-структурою-застосунку">Як вирішуєте проблеми маршрутизації в складних React-застосунках? Які підходи використовуєте для організації маршрутів та управління структурою застосунку?</a></li>
+    <li><a href="#як-обробляєте-анімації-в-react-як-використовуєте-css-анімації-та-бібліотеки-для-створення-плавних-і-високопродуктивних-анімацій">Як обробляєте анімації в React? Як використовуєте CSS-анімації та бібліотеки для створення плавних і високопродуктивних анімацій?</a></li>
+    <li><a href="#як-використовуєте-архітектурні-патерни-наприклад-flux-або-redux-для-ефективного-управління-станом-у-react-застосунку-які-переваги-та-обмеження-бачите-в-застосуванні-цих-патернів">Як використовуєте архітектурні патерни (наприклад, Flux або Redux) для ефективного управління станом у React-застосунку? Які переваги та обмеження бачите в застосуванні цих патернів?</a></li>
+    <li><a href="#як-оптимізуєте-та-масштабуєте-nextjs-застосунки-для-високого-трафіку-як-вирішуєте-питання-кешування-cdn-інших-аспектів-продуктивності">Як оптимізуєте та масштабуєте Next.js застосунки для високого трафіку? Як вирішуєте питання кешування, CDN, інших аспектів продуктивності?</a></li>
+    <li><a href="#що-таке-ре-рендер-компонента-коли-він-відбувається-чи-можна-вплинути-на-цей-процес">Що таке ре-рендер компонента, коли він відбувається чи можна вплинути на цей процес?</a></li>
+    <li><a href="#що-таке-react-context-коли-його-використовуєте">Що таке React Context, коли його використовуєте?</a></li>
+    <li><a href="#що-таке-мемоїзація-в-react-та-коли-вона-потрібна">Що таке мемоїзація в React та коли вона потрібна?</a></li>
+    <li><a href="#як-виконати-код-перед-видаленням-компонента-з-дерева">Як виконати код перед видаленням компонента з дерева?</a></li>
+    <li><a href="#у-яких-випадках-використовуєте-usereducer">У яких випадках використовуєте useReducer?</a></li>
+    <li><a href="#які-ui-бібліотеки-знаєте-у-чому-їхні-переваги-та-недоліки">Які UI-бібліотеки знаєте, у чому їхні переваги та недоліки?</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="фреймворки-та-бібліотеки">
+  Фреймворки та бібліотеки
+  <a class="anchor" href="#%d1%84%d1%80%d0%b5%d0%b9%d0%bc%d0%b2%d0%be%d1%80%d0%ba%d0%b8-%d1%82%d0%b0-%d0%b1%d1%96%d0%b1%d0%bb%d1%96%d0%be%d1%82%d0%b5%d0%ba%d0%b8">#</a>
+</h1>
+<h2 id="розкажіть-про-управління-станом-у-vuejs">
+  Розкажіть про управління станом у Vue.js.
+  <a class="anchor" href="#%d1%80%d0%be%d0%b7%d0%ba%d0%b0%d0%b6%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%be-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d1%96%d0%bd%d0%bd%d1%8f-%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%bc-%d1%83-vuejs">#</a>
+</h2>
+<h2 id="як-реалізувати-маршрутизацію-routing-в-react">
+  Як реалізувати маршрутизацію (routing) в React?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d1%80%d0%b5%d0%b0%d0%bb%d1%96%d0%b7%d1%83%d0%b2%d0%b0%d1%82%d0%b8-%d0%bc%d0%b0%d1%80%d1%88%d1%80%d1%83%d1%82%d0%b8%d0%b7%d0%b0%d1%86%d1%96%d1%8e-routing-%d0%b2-react">#</a>
+</h2>
+<h2 id="як-оптимізувати-рендеринг-компонентів-у-react">
+  Як оптимізувати рендеринг компонентів у React?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%be%d0%bf%d1%82%d0%b8%d0%bc%d1%96%d0%b7%d1%83%d0%b2%d0%b0%d1%82%d0%b8-%d1%80%d0%b5%d0%bd%d0%b4%d0%b5%d1%80%d0%b8%d0%bd%d0%b3-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d1%96%d0%b2-%d1%83-react">#</a>
+</h2>
+<h2 id="як-оптимізувати-продуктивність-у-великих-react-застосунках">
+  Як оптимізувати продуктивність у великих React-застосунках?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%be%d0%bf%d1%82%d0%b8%d0%bc%d1%96%d0%b7%d1%83%d0%b2%d0%b0%d1%82%d0%b8-%d0%bf%d1%80%d0%be%d0%b4%d1%83%d0%ba%d1%82%d0%b8%d0%b2%d0%bd%d1%96%d1%81%d1%82%d1%8c-%d1%83-%d0%b2%d0%b5%d0%bb%d0%b8%d0%ba%d0%b8%d1%85-react-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%bd%d0%ba%d0%b0%d1%85">#</a>
+</h2>
+<h2 id="з-якими-проблемами-в-react-компонентах-часто-стикались">
+  З якими проблемами в React-компонентах часто стикались?
+  <a class="anchor" href="#%d0%b7-%d1%8f%d0%ba%d0%b8%d0%bc%d0%b8-%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d0%b0%d0%bc%d0%b8-%d0%b2-react-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d0%b0%d1%85-%d1%87%d0%b0%d1%81%d1%82%d0%be-%d1%81%d1%82%d0%b8%d0%ba%d0%b0%d0%bb%d0%b8%d1%81%d1%8c">#</a>
+</h2>
+<h2 id="як-ви-управляєте-станами-в-react-app-як-передавати-стани-між-кількома-компонентами">
+  Як ви управляєте станами в React APP? Як передавати стани між кількома компонентами?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%b2%d0%b8-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d1%8f%d1%94%d1%82%d0%b5-%d1%81%d1%82%d0%b0%d0%bd%d0%b0%d0%bc%d0%b8-%d0%b2-react-app-%d1%8f%d0%ba-%d0%bf%d0%b5%d1%80%d0%b5%d0%b4%d0%b0%d0%b2%d0%b0%d1%82%d0%b8-%d1%81%d1%82%d0%b0%d0%bd%d0%b8-%d0%bc%d1%96%d0%b6-%d0%ba%d1%96%d0%bb%d1%8c%d0%ba%d0%be%d0%bc%d0%b0-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d0%b0%d0%bc%d0%b8">#</a>
+</h2>
+<h2 id="які-підходи-використовуєте-для-lazy-loading-компонентів-управління-станом-і-кешування-даних">
+  Які підходи використовуєте для lazy loading компонентів, управління станом і кешування даних?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d0%bf%d1%96%d0%b4%d1%85%d0%be%d0%b4%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-%d0%b4%d0%bb%d1%8f-lazy-loading-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d1%96%d0%b2-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d1%96%d0%bd%d0%bd%d1%8f-%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%bc-%d1%96-%d0%ba%d0%b5%d1%88%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-%d0%b4%d0%b0%d0%bd%d0%b8%d1%85">#</a>
+</h2>
+<h2 id="що-таке-side-effects-з-якими-інструментами-є-досвід">
+  Що таке side effects? З якими інструментами є досвід?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-side-effects-%d0%b7-%d1%8f%d0%ba%d0%b8%d0%bc%d0%b8-%d1%96%d0%bd%d1%81%d1%82%d1%80%d1%83%d0%bc%d0%b5%d0%bd%d1%82%d0%b0%d0%bc%d0%b8-%d1%94-%d0%b4%d0%be%d1%81%d0%b2%d1%96%d0%b4">#</a>
+</h2>
+<h2 id="як-вирішуєте-проблеми-маршрутизації-в-складних-react-застосунках-які-підходи-використовуєте-для-організації-маршрутів-та-управління-структурою-застосунку">
+  Як вирішуєте проблеми маршрутизації в складних React-застосунках? Які підходи використовуєте для організації маршрутів та управління структурою застосунку?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%b2%d0%b8%d1%80%d1%96%d1%88%d1%83%d1%94%d1%82%d0%b5-%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d0%b8-%d0%bc%d0%b0%d1%80%d1%88%d1%80%d1%83%d1%82%d0%b8%d0%b7%d0%b0%d1%86%d1%96%d1%97-%d0%b2-%d1%81%d0%ba%d0%bb%d0%b0%d0%b4%d0%bd%d0%b8%d1%85-react-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%bd%d0%ba%d0%b0%d1%85-%d1%8f%d0%ba%d1%96-%d0%bf%d1%96%d0%b4%d1%85%d0%be%d0%b4%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-%d0%b4%d0%bb%d1%8f-%d0%be%d1%80%d0%b3%d0%b0%d0%bd%d1%96%d0%b7%d0%b0%d1%86%d1%96%d1%97-%d0%bc%d0%b0%d1%80%d1%88%d1%80%d1%83%d1%82%d1%96%d0%b2-%d1%82%d0%b0-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d1%96%d0%bd%d0%bd%d1%8f-%d1%81%d1%82%d1%80%d1%83%d0%ba%d1%82%d1%83%d1%80%d0%be%d1%8e-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%bd%d0%ba%d1%83">#</a>
+</h2>
+<h2 id="як-обробляєте-анімації-в-react-як-використовуєте-css-анімації-та-бібліотеки-для-створення-плавних-і-високопродуктивних-анімацій">
+  Як обробляєте анімації в React? Як використовуєте CSS-анімації та бібліотеки для створення плавних і високопродуктивних анімацій?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%be%d0%b1%d1%80%d0%be%d0%b1%d0%bb%d1%8f%d1%94%d1%82%d0%b5-%d0%b0%d0%bd%d1%96%d0%bc%d0%b0%d1%86%d1%96%d1%97-%d0%b2-react-%d1%8f%d0%ba-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-css-%d0%b0%d0%bd%d1%96%d0%bc%d0%b0%d1%86%d1%96%d1%97-%d1%82%d0%b0-%d0%b1%d1%96%d0%b1%d0%bb%d1%96%d0%be%d1%82%d0%b5%d0%ba%d0%b8-%d0%b4%d0%bb%d1%8f-%d1%81%d1%82%d0%b2%d0%be%d1%80%d0%b5%d0%bd%d0%bd%d1%8f-%d0%bf%d0%bb%d0%b0%d0%b2%d0%bd%d0%b8%d1%85-%d1%96-%d0%b2%d0%b8%d1%81%d0%be%d0%ba%d0%be%d0%bf%d1%80%d0%be%d0%b4%d1%83%d0%ba%d1%82%d0%b8%d0%b2%d0%bd%d0%b8%d1%85-%d0%b0%d0%bd%d1%96%d0%bc%d0%b0%d1%86%d1%96%d0%b9">#</a>
+</h2>
+<h2 id="як-використовуєте-архітектурні-патерни-наприклад-flux-або-redux-для-ефективного-управління-станом-у-react-застосунку-які-переваги-та-обмеження-бачите-в-застосуванні-цих-патернів">
+  Як використовуєте архітектурні патерни (наприклад, Flux або Redux) для ефективного управління станом у React-застосунку? Які переваги та обмеження бачите в застосуванні цих патернів?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-%d0%b0%d1%80%d1%85%d1%96%d1%82%d0%b5%d0%ba%d1%82%d1%83%d1%80%d0%bd%d1%96-%d0%bf%d0%b0%d1%82%d0%b5%d1%80%d0%bd%d0%b8-%d0%bd%d0%b0%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4-flux-%d0%b0%d0%b1%d0%be-redux-%d0%b4%d0%bb%d1%8f-%d0%b5%d1%84%d0%b5%d0%ba%d1%82%d0%b8%d0%b2%d0%bd%d0%be%d0%b3%d0%be-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d1%96%d0%bd%d0%bd%d1%8f-%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%bc-%d1%83-react-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%bd%d0%ba%d1%83-%d1%8f%d0%ba%d1%96-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%b0%d0%b3%d0%b8-%d1%82%d0%b0-%d0%be%d0%b1%d0%bc%d0%b5%d0%b6%d0%b5%d0%bd%d0%bd%d1%8f-%d0%b1%d0%b0%d1%87%d0%b8%d1%82%d0%b5-%d0%b2-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%96-%d1%86%d0%b8%d1%85-%d0%bf%d0%b0%d1%82%d0%b5%d1%80%d0%bd%d1%96%d0%b2">#</a>
+</h2>
+<h2 id="як-оптимізуєте-та-масштабуєте-nextjs-застосунки-для-високого-трафіку-як-вирішуєте-питання-кешування-cdn-інших-аспектів-продуктивності">
+  Як оптимізуєте та масштабуєте Next.js застосунки для високого трафіку? Як вирішуєте питання кешування, CDN, інших аспектів продуктивності?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%be%d0%bf%d1%82%d0%b8%d0%bc%d1%96%d0%b7%d1%83%d1%94%d1%82%d0%b5-%d1%82%d0%b0-%d0%bc%d0%b0%d1%81%d1%88%d1%82%d0%b0%d0%b1%d1%83%d1%94%d1%82%d0%b5-nextjs-%d0%b7%d0%b0%d1%81%d1%82%d0%be%d1%81%d1%83%d0%bd%d0%ba%d0%b8-%d0%b4%d0%bb%d1%8f-%d0%b2%d0%b8%d1%81%d0%be%d0%ba%d0%be%d0%b3%d0%be-%d1%82%d1%80%d0%b0%d1%84%d1%96%d0%ba%d1%83-%d1%8f%d0%ba-%d0%b2%d0%b8%d1%80%d1%96%d1%88%d1%83%d1%94%d1%82%d0%b5-%d0%bf%d0%b8%d1%82%d0%b0%d0%bd%d0%bd%d1%8f-%d0%ba%d0%b5%d1%88%d1%83%d0%b2%d0%b0%d0%bd%d0%bd%d1%8f-cdn-%d1%96%d0%bd%d1%88%d0%b8%d1%85-%d0%b0%d1%81%d0%bf%d0%b5%d0%ba%d1%82%d1%96%d0%b2-%d0%bf%d1%80%d0%be%d0%b4%d1%83%d0%ba%d1%82%d0%b8%d0%b2%d0%bd%d0%be%d1%81%d1%82%d1%96">#</a>
+</h2>
+<h2 id="що-таке-ре-рендер-компонента-коли-він-відбувається-чи-можна-вплинути-на-цей-процес">
+  Що таке ре-рендер компонента, коли він відбувається чи можна вплинути на цей процес?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-%d1%80%d0%b5-%d1%80%d0%b5%d0%bd%d0%b4%d0%b5%d1%80-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d0%b0-%d0%ba%d0%be%d0%bb%d0%b8-%d0%b2%d1%96%d0%bd-%d0%b2%d1%96%d0%b4%d0%b1%d1%83%d0%b2%d0%b0%d1%94%d1%82%d1%8c%d1%81%d1%8f-%d1%87%d0%b8-%d0%bc%d0%be%d0%b6%d0%bd%d0%b0-%d0%b2%d0%bf%d0%bb%d0%b8%d0%bd%d1%83%d1%82%d0%b8-%d0%bd%d0%b0-%d1%86%d0%b5%d0%b9-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81">#</a>
+</h2>
+<h2 id="що-таке-react-context-коли-його-використовуєте">
+  Що таке React Context, коли його використовуєте?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-react-context-%d0%ba%d0%be%d0%bb%d0%b8-%d0%b9%d0%be%d0%b3%d0%be-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5">#</a>
+</h2>
+<h2 id="що-таке-мемоїзація-в-react-та-коли-вона-потрібна">
+  Що таке мемоїзація в React та коли вона потрібна?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-%d0%bc%d0%b5%d0%bc%d0%be%d1%97%d0%b7%d0%b0%d1%86%d1%96%d1%8f-%d0%b2-react-%d1%82%d0%b0-%d0%ba%d0%be%d0%bb%d0%b8-%d0%b2%d0%be%d0%bd%d0%b0-%d0%bf%d0%be%d1%82%d1%80%d1%96%d0%b1%d0%bd%d0%b0">#</a>
+</h2>
+<h2 id="як-виконати-код-перед-видаленням-компонента-з-дерева">
+  Як виконати код перед видаленням компонента з дерева?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%b2%d0%b8%d0%ba%d0%be%d0%bd%d0%b0%d1%82%d0%b8-%d0%ba%d0%be%d0%b4-%d0%bf%d0%b5%d1%80%d0%b5%d0%b4-%d0%b2%d0%b8%d0%b4%d0%b0%d0%bb%d0%b5%d0%bd%d0%bd%d1%8f%d0%bc-%d0%ba%d0%be%d0%bc%d0%bf%d0%be%d0%bd%d0%b5%d0%bd%d1%82%d0%b0-%d0%b7-%d0%b4%d0%b5%d1%80%d0%b5%d0%b2%d0%b0">#</a>
+</h2>
+<h2 id="у-яких-випадках-використовуєте-usereducer">
+  У яких випадках використовуєте useReducer?
+  <a class="anchor" href="#%d1%83-%d1%8f%d0%ba%d0%b8%d1%85-%d0%b2%d0%b8%d0%bf%d0%b0%d0%b4%d0%ba%d0%b0%d1%85-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%94%d1%82%d0%b5-usereducer">#</a>
+</h2>
+<h2 id="які-ui-бібліотеки-знаєте-у-чому-їхні-переваги-та-недоліки">
+  Які UI-бібліотеки знаєте, у чому їхні переваги та недоліки?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-ui-%d0%b1%d1%96%d0%b1%d0%bb%d1%96%d0%be%d1%82%d0%b5%d0%ba%d0%b8-%d0%b7%d0%bd%d0%b0%d1%94%d1%82%d0%b5-%d1%83-%d1%87%d0%be%d0%bc%d1%83-%d1%97%d1%85%d0%bd%d1%96-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%b0%d0%b3%d0%b8-%d1%82%d0%b0-%d0%bd%d0%b5%d0%b4%d0%be%d0%bb%d1%96%d0%ba%d0%b8">#</a>
+</h2>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#розкажіть-про-управління-станом-у-vuejs">Розкажіть про управління станом у Vue.js.</a></li>
+    <li><a href="#як-реалізувати-маршрутизацію-routing-в-react">Як реалізувати маршрутизацію (routing) в React?</a></li>
+    <li><a href="#як-оптимізувати-рендеринг-компонентів-у-react">Як оптимізувати рендеринг компонентів у React?</a></li>
+    <li><a href="#як-оптимізувати-продуктивність-у-великих-react-застосунках">Як оптимізувати продуктивність у великих React-застосунках?</a></li>
+    <li><a href="#з-якими-проблемами-в-react-компонентах-часто-стикались">З якими проблемами в React-компонентах часто стикались?</a></li>
+    <li><a href="#як-ви-управляєте-станами-в-react-app-як-передавати-стани-між-кількома-компонентами">Як ви управляєте станами в React APP? Як передавати стани між кількома компонентами?</a></li>
+    <li><a href="#які-підходи-використовуєте-для-lazy-loading-компонентів-управління-станом-і-кешування-даних">Які підходи використовуєте для lazy loading компонентів, управління станом і кешування даних?</a></li>
+    <li><a href="#що-таке-side-effects-з-якими-інструментами-є-досвід">Що таке side effects? З якими інструментами є досвід?</a></li>
+    <li><a href="#як-вирішуєте-проблеми-маршрутизації-в-складних-react-застосунках-які-підходи-використовуєте-для-організації-маршрутів-та-управління-структурою-застосунку">Як вирішуєте проблеми маршрутизації в складних React-застосунках? Які підходи використовуєте для організації маршрутів та управління структурою застосунку?</a></li>
+    <li><a href="#як-обробляєте-анімації-в-react-як-використовуєте-css-анімації-та-бібліотеки-для-створення-плавних-і-високопродуктивних-анімацій">Як обробляєте анімації в React? Як використовуєте CSS-анімації та бібліотеки для створення плавних і високопродуктивних анімацій?</a></li>
+    <li><a href="#як-використовуєте-архітектурні-патерни-наприклад-flux-або-redux-для-ефективного-управління-станом-у-react-застосунку-які-переваги-та-обмеження-бачите-в-застосуванні-цих-патернів">Як використовуєте архітектурні патерни (наприклад, Flux або Redux) для ефективного управління станом у React-застосунку? Які переваги та обмеження бачите в застосуванні цих патернів?</a></li>
+    <li><a href="#як-оптимізуєте-та-масштабуєте-nextjs-застосунки-для-високого-трафіку-як-вирішуєте-питання-кешування-cdn-інших-аспектів-продуктивності">Як оптимізуєте та масштабуєте Next.js застосунки для високого трафіку? Як вирішуєте питання кешування, CDN, інших аспектів продуктивності?</a></li>
+    <li><a href="#що-таке-ре-рендер-компонента-коли-він-відбувається-чи-можна-вплинути-на-цей-процес">Що таке ре-рендер компонента, коли він відбувається чи можна вплинути на цей процес?</a></li>
+    <li><a href="#що-таке-react-context-коли-його-використовуєте">Що таке React Context, коли його використовуєте?</a></li>
+    <li><a href="#що-таке-мемоїзація-в-react-та-коли-вона-потрібна">Що таке мемоїзація в React та коли вона потрібна?</a></li>
+    <li><a href="#як-виконати-код-перед-видаленням-компонента-з-дерева">Як виконати код перед видаленням компонента з дерева?</a></li>
+    <li><a href="#у-яких-випадках-використовуєте-usereducer">У яких випадках використовуєте useReducer?</a></li>
+    <li><a href="#які-ui-бібліотеки-знаєте-у-чому-їхні-переваги-та-недоліки">Які UI-бібліотеки знаєте, у чому їхні переваги та недоліки?</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

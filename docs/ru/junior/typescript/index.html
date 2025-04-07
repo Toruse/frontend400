@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  TypeScript
+  #
+
+
+  Які основні відмінності між TypeScript і JavaScript?
+  #
+
+
+  Які переваги та недоліки використання TypeScript?
+  #
+
+
+  Що таке типи даних у TypeScript і як їх використовують?
+  #
+
+
+  Розкажіть про інтерфейси в TypeScript і наведіть приклади їх використання.
+  #
+
+
+  Як працюють Generics у TypeScript і чому вони корисні?
+  #
+
+
+  Як можна використовувати Enums у TypeScript і які їхні переваги?
+  #
+
+
+  Як TypeScript покращує безпеку типів проти JavaScript?
+  #
+
+
+  Які можливості для рефакторингу та підтримки коду надає TypeScript?
+  #
+
+
+  Що таке Decorators у TypeScript і в яких випадках їх використовують?
+  #
+
+
+  Як у TypeScript використовують простори імен і модулі?
+  #
+
+
+  Які стратегії міграції з JavaScript на TypeScript ви знаєте?
+  #
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://toruse.github.io/frontend400/ru/junior/typescript/">
+  <meta property="og:site_name" content="Собеседование: Вопросы по Frontend">
+  <meta property="og:title" content="TypeScript">
+  <meta property="og:description" content="TypeScript#Які основні відмінності між TypeScript і JavaScript?#Які переваги та недоліки використання TypeScript?#Що таке типи даних у TypeScript і як їх використовують?#Розкажіть про інтерфейси в TypeScript і наведіть приклади їх використання.#Як працюють Generics у TypeScript і чому вони корисні?#Як можна використовувати Enums у TypeScript і які їхні переваги?#Як TypeScript покращує безпеку типів проти JavaScript?#Які можливості для рефакторингу та підтримки коду надає TypeScript?#Що таке Decorators у TypeScript і в яких випадках їх використовують?#Як у TypeScript використовують простори імен і модулі?#Які стратегії міграції з JavaScript на TypeScript ви знаєте?#">
+  <meta property="og:locale" content="ru">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="junior">
+<title>TypeScript | Собеседование: Вопросы по Frontend</title>
+<link rel="icon" href="/frontend400/favicon.png" >
+<link rel="manifest" href="/frontend400/manifest.json">
+<link rel="canonical" href="https://toruse.github.io/frontend400/ru/junior/typescript/">
+  <link rel="alternate" hreflang="ua" href="https://toruse.github.io/frontend400/junior/typescript/" title="TypeScript">
+  <link rel="alternate" hreflang="en" href="https://toruse.github.io/frontend400/en/junior/typescript/" title="TypeScript">
+<link rel="stylesheet" href="/frontend400/book.min.a7616cf2799b58bddffce9438e31fdbfc6393687cfc0950a4a17cd1cce7e35f6.css" integrity="sha256-p2Fs8nmbWL3f/OlDjjH9v8Y5NofPwJUKShfNHM5&#43;NfY=" crossorigin="anonymous"><!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/frontend400/ru/"><span>Собеседование: Вопросы по Frontend</span>
+  </a>
+</h2>
+
+
+
+
+  
+
+
+
+  
+    
+  
+    
+  
+
+
+  
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/frontend400/svg/translate.svg" class="book-icon" alt="Languages" />
+        Русский
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/frontend400/junior/typescript/">
+          Українська
+        </a>
+      </li>
+      
+      <li>
+        <a href="/frontend400/en/junior/typescript/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-74271b9e3958efd1064bff9b4a27bd53" class="toggle" checked />
+    <label for="section-74271b9e3958efd1064bff9b4a27bd53" class="flex justify-between">
+      <a role="button" class="">Junior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/htmlcss/" class="">Основи HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/web/" class="">Web Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/javascript/" class="">Основи JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/browserapi/" class="">API браузера</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/network/" class="">Основи мережі та протоколи</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/backend/" class="">Робота з бекендом</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/algorithms/" class="">Алгоритми та структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/git/" class="">Git і системи контролю версій</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/typescript/" class="active">TypeScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/junior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-18b4f0f8cb7ef7c80d2829fb30d37b01" class="toggle"  />
+    <label for="section-18b4f0f8cb7ef7c80d2829fb30d37b01" class="flex justify-between">
+      <a role="button" class="">Middle</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/general/" class="">Загальні питання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/testing/" class="">Тести</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/middle/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5520c7b13aef4cf221ae2cddad677702" class="toggle"  />
+    <label for="section-5520c7b13aef4cf221ae2cddad677702" class="flex justify-between">
+      <a role="button" class="">Senior</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/general/" class="">Загальні запитання</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/htmlcss/" class="">HTML/CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/performance/" class="">Performance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/javascript/" class="">JavaScript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/frameworkslibraries/" class="">Фреймворки та бібліотеки</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/testing/" class="">Тестування</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/algorithms/" class="">Алгоритми і структури даних</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/architecture/" class="">Архітектура</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/security/" class="">Безпека</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/frontend400/ru/senior/accessibility/" class="">Accessibility</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/frontend400/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>TypeScript</h3>
+
+  <label for="toc-control">
+    
+    <img src="/frontend400/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#які-основні-відмінності-між-typescript-і-javascript">Які основні відмінності між TypeScript і JavaScript?</a></li>
+    <li><a href="#які-переваги-та-недоліки-використання-typescript">Які переваги та недоліки використання TypeScript?</a></li>
+    <li><a href="#що-таке-типи-даних-у-typescript-і-як-їх-використовують">Що таке типи даних у TypeScript і як їх використовують?</a></li>
+    <li><a href="#розкажіть-про-інтерфейси-в-typescript-і-наведіть-приклади-їх-використання">Розкажіть про інтерфейси в TypeScript і наведіть приклади їх використання.</a></li>
+    <li><a href="#як-працюють-generics-у-typescript-і-чому-вони-корисні">Як працюють Generics у TypeScript і чому вони корисні?</a></li>
+    <li><a href="#як-можна-використовувати-enums-у-typescript-і-які-їхні-переваги">Як можна використовувати Enums у TypeScript і які їхні переваги?</a></li>
+    <li><a href="#як-typescript-покращує-безпеку-типів-проти-javascript">Як TypeScript покращує безпеку типів проти JavaScript?</a></li>
+    <li><a href="#які-можливості-для-рефакторингу-та-підтримки-коду-надає-typescript">Які можливості для рефакторингу та підтримки коду надає TypeScript?</a></li>
+    <li><a href="#що-таке-decorators-у-typescript-і-в-яких-випадках-їх-використовують">Що таке Decorators у TypeScript і в яких випадках їх використовують?</a></li>
+    <li><a href="#як-у-typescript-використовують-простори-імен-і-модулі">Як у TypeScript використовують простори імен і модулі?</a></li>
+    <li><a href="#які-стратегії-міграції-з-javascript-на-typescript-ви-знаєте">Які стратегії міграції з JavaScript на TypeScript ви знаєте?</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="typescript">
+  TypeScript
+  <a class="anchor" href="#typescript">#</a>
+</h1>
+<h2 id="які-основні-відмінності-між-typescript-і-javascript">
+  Які основні відмінності між TypeScript і JavaScript?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d0%be%d1%81%d0%bd%d0%be%d0%b2%d0%bd%d1%96-%d0%b2%d1%96%d0%b4%d0%bc%d1%96%d0%bd%d0%bd%d0%be%d1%81%d1%82%d1%96-%d0%bc%d1%96%d0%b6-typescript-%d1%96-javascript">#</a>
+</h2>
+<h2 id="які-переваги-та-недоліки-використання-typescript">
+  Які переваги та недоліки використання TypeScript?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%b0%d0%b3%d0%b8-%d1%82%d0%b0-%d0%bd%d0%b5%d0%b4%d0%be%d0%bb%d1%96%d0%ba%d0%b8-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f-typescript">#</a>
+</h2>
+<h2 id="що-таке-типи-даних-у-typescript-і-як-їх-використовують">
+  Що таке типи даних у TypeScript і як їх використовують?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-%d1%82%d0%b8%d0%bf%d0%b8-%d0%b4%d0%b0%d0%bd%d0%b8%d1%85-%d1%83-typescript-%d1%96-%d1%8f%d0%ba-%d1%97%d1%85-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%8e%d1%82%d1%8c">#</a>
+</h2>
+<h2 id="розкажіть-про-інтерфейси-в-typescript-і-наведіть-приклади-їх-використання">
+  Розкажіть про інтерфейси в TypeScript і наведіть приклади їх використання.
+  <a class="anchor" href="#%d1%80%d0%be%d0%b7%d0%ba%d0%b0%d0%b6%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%be-%d1%96%d0%bd%d1%82%d0%b5%d1%80%d1%84%d0%b5%d0%b9%d1%81%d0%b8-%d0%b2-typescript-%d1%96-%d0%bd%d0%b0%d0%b2%d0%b5%d0%b4%d1%96%d1%82%d1%8c-%d0%bf%d1%80%d0%b8%d0%ba%d0%bb%d0%b0%d0%b4%d0%b8-%d1%97%d1%85-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%b0%d0%bd%d0%bd%d1%8f">#</a>
+</h2>
+<h2 id="як-працюють-generics-у-typescript-і-чому-вони-корисні">
+  Як працюють Generics у TypeScript і чому вони корисні?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%bf%d1%80%d0%b0%d1%86%d1%8e%d1%8e%d1%82%d1%8c-generics-%d1%83-typescript-%d1%96-%d1%87%d0%be%d0%bc%d1%83-%d0%b2%d0%be%d0%bd%d0%b8-%d0%ba%d0%be%d1%80%d0%b8%d1%81%d0%bd%d1%96">#</a>
+</h2>
+<h2 id="як-можна-використовувати-enums-у-typescript-і-які-їхні-переваги">
+  Як можна використовувати Enums у TypeScript і які їхні переваги?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d0%bc%d0%be%d0%b6%d0%bd%d0%b0-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d0%b2%d0%b0%d1%82%d0%b8-enums-%d1%83-typescript-%d1%96-%d1%8f%d0%ba%d1%96-%d1%97%d1%85%d0%bd%d1%96-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%b0%d0%b3%d0%b8">#</a>
+</h2>
+<h2 id="як-typescript-покращує-безпеку-типів-проти-javascript">
+  Як TypeScript покращує безпеку типів проти JavaScript?
+  <a class="anchor" href="#%d1%8f%d0%ba-typescript-%d0%bf%d0%be%d0%ba%d1%80%d0%b0%d1%89%d1%83%d1%94-%d0%b1%d0%b5%d0%b7%d0%bf%d0%b5%d0%ba%d1%83-%d1%82%d0%b8%d0%bf%d1%96%d0%b2-%d0%bf%d1%80%d0%be%d1%82%d0%b8-javascript">#</a>
+</h2>
+<h2 id="які-можливості-для-рефакторингу-та-підтримки-коду-надає-typescript">
+  Які можливості для рефакторингу та підтримки коду надає TypeScript?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d0%bc%d0%be%d0%b6%d0%bb%d0%b8%d0%b2%d0%be%d1%81%d1%82%d1%96-%d0%b4%d0%bb%d1%8f-%d1%80%d0%b5%d1%84%d0%b0%d0%ba%d1%82%d0%be%d1%80%d0%b8%d0%bd%d0%b3%d1%83-%d1%82%d0%b0-%d0%bf%d1%96%d0%b4%d1%82%d1%80%d0%b8%d0%bc%d0%ba%d0%b8-%d0%ba%d0%be%d0%b4%d1%83-%d0%bd%d0%b0%d0%b4%d0%b0%d1%94-typescript">#</a>
+</h2>
+<h2 id="що-таке-decorators-у-typescript-і-в-яких-випадках-їх-використовують">
+  Що таке Decorators у TypeScript і в яких випадках їх використовують?
+  <a class="anchor" href="#%d1%89%d0%be-%d1%82%d0%b0%d0%ba%d0%b5-decorators-%d1%83-typescript-%d1%96-%d0%b2-%d1%8f%d0%ba%d0%b8%d1%85-%d0%b2%d0%b8%d0%bf%d0%b0%d0%b4%d0%ba%d0%b0%d1%85-%d1%97%d1%85-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%8e%d1%82%d1%8c">#</a>
+</h2>
+<h2 id="як-у-typescript-використовують-простори-імен-і-модулі">
+  Як у TypeScript використовують простори імен і модулі?
+  <a class="anchor" href="#%d1%8f%d0%ba-%d1%83-typescript-%d0%b2%d0%b8%d0%ba%d0%be%d1%80%d0%b8%d1%81%d1%82%d0%be%d0%b2%d1%83%d1%8e%d1%82%d1%8c-%d0%bf%d1%80%d0%be%d1%81%d1%82%d0%be%d1%80%d0%b8-%d1%96%d0%bc%d0%b5%d0%bd-%d1%96-%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%96">#</a>
+</h2>
+<h2 id="які-стратегії-міграції-з-javascript-на-typescript-ви-знаєте">
+  Які стратегії міграції з JavaScript на TypeScript ви знаєте?
+  <a class="anchor" href="#%d1%8f%d0%ba%d1%96-%d1%81%d1%82%d1%80%d0%b0%d1%82%d0%b5%d0%b3%d1%96%d1%97-%d0%bc%d1%96%d0%b3%d1%80%d0%b0%d1%86%d1%96%d1%97-%d0%b7-javascript-%d0%bd%d0%b0-typescript-%d0%b2%d0%b8-%d0%b7%d0%bd%d0%b0%d1%94%d1%82%d0%b5">#</a>
+</h2>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#які-основні-відмінності-між-typescript-і-javascript">Які основні відмінності між TypeScript і JavaScript?</a></li>
+    <li><a href="#які-переваги-та-недоліки-використання-typescript">Які переваги та недоліки використання TypeScript?</a></li>
+    <li><a href="#що-таке-типи-даних-у-typescript-і-як-їх-використовують">Що таке типи даних у TypeScript і як їх використовують?</a></li>
+    <li><a href="#розкажіть-про-інтерфейси-в-typescript-і-наведіть-приклади-їх-використання">Розкажіть про інтерфейси в TypeScript і наведіть приклади їх використання.</a></li>
+    <li><a href="#як-працюють-generics-у-typescript-і-чому-вони-корисні">Як працюють Generics у TypeScript і чому вони корисні?</a></li>
+    <li><a href="#як-можна-використовувати-enums-у-typescript-і-які-їхні-переваги">Як можна використовувати Enums у TypeScript і які їхні переваги?</a></li>
+    <li><a href="#як-typescript-покращує-безпеку-типів-проти-javascript">Як TypeScript покращує безпеку типів проти JavaScript?</a></li>
+    <li><a href="#які-можливості-для-рефакторингу-та-підтримки-коду-надає-typescript">Які можливості для рефакторингу та підтримки коду надає TypeScript?</a></li>
+    <li><a href="#що-таке-decorators-у-typescript-і-в-яких-випадках-їх-використовують">Що таке Decorators у TypeScript і в яких випадках їх використовують?</a></li>
+    <li><a href="#як-у-typescript-використовують-простори-імен-і-модулі">Як у TypeScript використовують простори імен і модулі?</a></li>
+    <li><a href="#які-стратегії-міграції-з-javascript-на-typescript-ви-знаєте">Які стратегії міграції з JavaScript на TypeScript ви знаєте?</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
