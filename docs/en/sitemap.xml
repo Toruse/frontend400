@@ -529,6 +529,23 @@
                 href="https://toruse.github.io/frontend400/en/categories/"
                 />
   </url><url>
+    <loc>https://toruse.github.io/frontend400/en/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ua"
+                href="https://toruse.github.io/frontend400/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ru"
+                href="https://toruse.github.io/frontend400/ru/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://toruse.github.io/frontend400/en/"
+                />
+  </url><url>
     <loc>https://toruse.github.io/frontend400/en/junior/</loc>
     <xhtml:link
                 rel="alternate"
@@ -595,23 +612,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://toruse.github.io/frontend400/en/tags/"
-                />
-  </url><url>
-    <loc>https://toruse.github.io/frontend400/en/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ua"
-                href="https://toruse.github.io/frontend400/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru"
-                href="https://toruse.github.io/frontend400/ru/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://toruse.github.io/frontend400/en/"
                 />
   </url>
 </urlset>

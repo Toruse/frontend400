@@ -1,9 +1,9 @@
 ---
-title: "Загальні питання"
+title: "General questions"
 weight: 100
 ---
 
-# Загальні питання
+# General questions
 
 ## Чи стежите ви за новинами у світі фронтенду? Як саме?
 
