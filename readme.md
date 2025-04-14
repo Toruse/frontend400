@@ -2,4 +2,4 @@
 
 List of common questions asked in JavaScript technical interviews.
 
-**Web version**: [https://toruse.github.io/javascript300/](https://toruse.github.io/javascript300/)
+**Web version**: [https://toruse.github.io/frontend400/](https://toruse.github.io/frontend400/)
