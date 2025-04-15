@@ -3,9 +3,9 @@ theme = 'hugo-book'
 publishDir = 'docs'
 defaultContentLanguage = 'ua'
 
-#[services]
-#  [services.googleAnalytics]
-#    id = 'G-STM9NRDDSY'
+[services]
+  [services.googleAnalytics]
+    id = 'G-TH7GYXS8B8'
 
 [languages]
 [languages.ua]
